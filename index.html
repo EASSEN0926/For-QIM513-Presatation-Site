@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Motivation: ARCS Model in E-Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8F9FA; color: #1A202C; scroll-behavior: smooth; }
+        .chart-container { position: relative; width: 100%; max-width: 550px; margin: auto; height: 320px; }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(226, 232, 240, 0.8); }
+        .step-progress { transition: width 0.4s ease; }
+        .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        
+        /* Animation */
+        .fade-up { animation: fadeUp 0.6s ease-out forwards; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <!-- Chosen Palette: Professional Slate & Warm Amber (Education Focus) -->
+    <!-- Application Structure Plan:
+         This is an "Active Learning Module".
+         1. Onboarding: High-impact hero section with clear goals and author context.
+         2. Deep Dive: Interactive tabs for the 4 components, enhanced with sub-category detailed strategies.
+         3. Case Studies: Interactive scenario-based learning section for practice.
+         4. Tool-Kit: Practical software recommendations for each ARCS pillar in e-learning.
+         5. Mastery Check: Refined quiz with detailed explanations for assessment.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Progress Indicator -->
+    <div class="fixed top-0 left-0 w-full h-1 z-[60] bg-stone-200">
+        <div id="global-progress" class="h-full bg-orange-500 step-progress" style="width: 20%"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="app.navigate('home')">
+                    <div class="h-10 w-10 bg-stone-800 rounded-xl flex items-center justify-center text-white font-bold shadow-inner">ID</div>
+                    <div>
+                        <span class="block font-bold text-stone-900 leading-none">ARCS MASTER</span>
+                        <span class="text-[10px] text-orange-600 font-bold tracking-widest uppercase">Instructional Design</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <button onclick="app.navigate('home')" id="nav-home" class="text-sm font-semibold text-stone-600 hover:text-orange-600 transition">Home</button>
+                    <button onclick="app.navigate('theory')" id="nav-theory" class="text-sm font-semibold text-stone-600 hover:text-orange-600 transition">Theory Hub</button>
+                    <button onclick="app.navigate('case')" id="nav-case" class="text-sm font-semibold text-stone-600 hover:text-orange-600 transition">Case Study</button>
+                    <button onclick="app.navigate('application')" id="nav-application" class="text-sm font-semibold text-stone-600 hover:text-orange-600 transition">E-Learning Lab</button>
+                    <button onclick="app.navigate('quiz')" id="nav-quiz" class="text-sm font-semibold text-stone-600 hover:text-orange-600 transition">Mastery Check</button>
+                </div>
+                <button onclick="document.getElementById('m-menu').classList.toggle('hidden')" class="md:hidden text-stone-600 text-2xl">☰</button>
+            </div>
+        </div>
+        <div id="m-menu" class="hidden md:hidden bg-white border-t p-4 space-y-3">
+            <button onclick="app.navigate('home')" class="block w-full text-left font-medium">Home</button>
+            <button onclick="app.navigate('theory')" class="block w-full text-left font-medium">Theory Hub</button>
+            <button onclick="app.navigate('case')" class="block w-full text-left font-medium">Case Study</button>
+            <button onclick="app.navigate('application')" class="block w-full text-left font-medium">E-Learning Lab</button>
+            <button onclick="app.navigate('quiz')" class="block w-full text-left font-medium">Mastery Check</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-canvas" class="flex-grow">
+        <!-- JS Injection point -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-white font-bold mb-4">About This Project</h4>
+                <p class="text-sm leading-relaxed">A specialized web-based lesson on the ARCS Model of Motivation for Graduate-level Instructional Design students.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <div class="flex flex-col space-y-2 text-sm">
+                    <span onclick="app.navigate('resources')" class="hover:text-orange-400 cursor-pointer underline">View Full References</span>
+                    <span class="hover:text-orange-400 cursor-pointer underline">Keller's Motivation Theory</span>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Academic Standards</h4>
+                <p class="text-xs">Compliant with QIM513 Syllabus. All theoretical content is based on John M. Keller's validated framework.</p>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-stone-800 text-[10px] uppercase tracking-widest">
+            © 2026 Instructional Design Portfolio • No SVG • Pure Canvas & Tailwind
+        </div>
+    </footer>
+
+    <script>
+        const appData = {
+            arcs: {
+                A: {
+                    title: "Attention", icon: "💡", color: "orange",
+                    desc: "Attention refers to the learner’s interest, curiosity, and willingness to mentally engage with learning content.",
+                    sub: [
+                        { t: "Perceptual Arousal", d: "Using novelty, surprise, or unexpected elements to capture initial interest." },
+                        { t: "Inquiry Arousal", d: "Stimulating curiosity through questions, problems, or incomplete information." },
+                        { t: "Variability", d: "Using varied instructional methods and media to sustain engagement." },
+                        { t: "Interaction", d: "Encouraging active participation rather than passive content consumption." },
+                        { t: "Challenge", d: "Providing tasks that require effort without causing frustration." },
+                        { t: "Focus", d: "Reducing unnecessary distractions and guiding attention to key ideas." }
+                    ],
+                    tools: ["H5P Interactivity", "Interactive Videos", "Pop-up Quizzes", "Gamified Elements"]
+                },
+                R: {
+                    title: "Relevance", icon: "🎯", color: "blue",
+                    desc: "Relevance focuses on helping learners understand why learning matters to their goals and needs.",
+                    sub: [
+                        { t: "Goal Orientation", d: "Clearly communicating learning goals and expected outcomes." },
+                        { t: "Motive Matching", d: "Aligning instruction with learners’ motivations and preferences." },
+                        { t: "Familiarity", d: "Connecting new content to learners’ prior knowledge or experiences." },
+                        { t: "Future Usefulness", d: "Demonstrating how learning can be applied in professional contexts." }
+                    ],
+                    tools: ["Case Study Portals", "Personalized Learning Paths", "Real-world Project Simulators"]
+                },
+                C: {
+                    title: "Confidence", icon: "📈", color: "green",
+                    desc: "Confidence building is about reducing anxiety and fostering a 'can-do' attitude through clear scaffolding.",
+                    sub: [
+                        { t: "Clear Expectations", d: "Providing explicit learning objectives and evaluation criteria." },
+                        { t: "Progressive Difficulty", d: "Structuring tasks from simple to complex to ensure 'small wins'." },
+                        { t: "Guidance & Scaffolding", d: "Providing examples, hints, and ongoing support during tasks." },
+                        { t: "Learner Control", d: "Allowing learners to manage their own pace or learning paths." }
+                    ],
+                    tools: ["Progress Trackers", "Step-by-Step Wizards", "Immediate Feedback Loops"]
+                },
+                S: {
+                    title: "Satisfaction", icon: "✨", color: "purple",
+                    desc: "Satisfaction reinforces the effort. It's about feeling that the learning was worth the time and energy spent.",
+                    sub: [
+                        { t: "Intrinsic Reinforcement", d: "Designing activities that are enjoyable for their own sake." },
+                        { t: "Extrinsic Rewards", d: "Using certificates, badges, or meaningful recognition." },
+                        { t: "Equity", d: "Ensuring consistent and fair standards for all learners." },
+                        { t: "Application Opportunities", d: "Allowing learners to apply knowledge in meaningful contexts." }
+                    ],
+                    tools: ["Digital Badges", "Certificates", "Public Praise Forums", "Portfolio Showcases"]
+                }
+            },
+            caseStudy: {
+                scenario: "You are designing an online module for medical students about 'Patient Communication'. After the first week, 40% of students dropped out because they found the video lectures 'too dry' and 'unconnected to actual surgery'.",
+                options: [
+                    { label: "Add a leaderboard for the fastest readers.", type: "S", feedback: "Leaderboards provide extrinsic satisfaction, but they don't solve the core 'dry' content problem." },
+                    { label: "Start the next module with a real-life emergency case study.", type: "A/R", feedback: "Correct! This triggers Perceptual Arousal (Attention) and Goal Orientation (Relevance) immediately.", correct: true },
+                    { label: "Make the final exam easier.", type: "C", feedback: "Lowering standards reduces the 'Equity' of the course and doesn't actually fix the engagement issue." }
+                ]
+            },
+            quiz: [
+                { q: "Who is the primary author of the ARCS Model?", o: ["Jean Piaget", "Lev Vygotsky", "John M. Keller", "Robert Gagne"], a: 2, e: "John M. Keller developed the ARCS model specifically to address motivational design." },
+                { q: "Which component addresses 'Boredom' and 'Monotony' in e-learning?", o: ["Attention", "Relevance", "Confidence", "Satisfaction"], a: 0, e: "Attention strategies like Variability are designed to prevent boredom." },
+                { q: "Providing a clear rubric upfront builds:", o: ["Attention", "Relevance", "Confidence", "Satisfaction"], a: 2, e: "Clear expectations help learners feel they can succeed, thus building Confidence." },
+                { q: "Connecting a theory to a learner's past experience is:", o: ["Confidence", "Relevance", "Diversity", "Attention"], a: 1, e: "Familiarity is a sub-category of Relevance." },
+                { q: "What is 'Inquiry Arousal'?", o: ["Surprising learners", "Stimulating curiosity via questions", "Giving badges", "Setting goals"], a: 1, e: "Inquiry Arousal is about sparking curiosity through problems or questions." },
+                { q: "In ARCS, motivation is treated as a:", o: ["Student trait", "Luck-based factor", "Design responsibility", "Fixed constant"], a: 2, e: "Keller argues that motivation can and should be intentionally designed." },
+                { q: "'Progress Bars' in e-learning primarily support:", o: ["Attention", "Relevance", "Confidence", "Satisfaction"], a: 2, e: "Seeing progress builds the learner's belief in their success path (Confidence)." },
+                { q: "Giving a digital badge upon completion supports:", o: ["Attention", "Relevance", "Confidence", "Satisfaction"], a: 3, e: "Badges are extrinsic rewards that fall under Satisfaction." },
+                { q: "Allowing learners to control their own pace supports:", o: ["Learner Control (C)", "Equity (S)", "Variability (A)", "Motive Matching (R)"], a: 0, e: "Learner Control is a key sub-category of Confidence." },
+                { q: "E-learning is best defined as:", o: ["Paper-based learning", "Technology-mediated instruction", "In-person lectures", "One-on-one tutoring"], a: 1, e: "E-learning refers to learning delivered through electronic technologies." }
+            ]
+        };
+
+        const app = {
+            state: { view: 'home', tab: 'A', score: 0, submitted: false },
+            
+            init: function() { this.navigate('home'); },
+
+            navigate: function(view) {
+                this.state.view = view;
+                this.render();
+                const prog = { home: 15, theory: 40, case: 60, application: 85, quiz: 100 }[view] || 100;
+                document.getElementById('global-progress').style.width = prog + '%';
+                
+                document.querySelectorAll('nav button').forEach(b => b.classList.remove('text-orange-600', 'border-b-2', 'border-orange-600'));
+                const activeBtn = document.getElementById('nav-' + view);
+                if(activeBtn) activeBtn.classList.add('text-orange-600', 'border-b-2', 'border-orange-600');
+            },
+
+            render: function() {
+                const canvas = document.getElementById('main-canvas');
+                canvas.innerHTML = '';
+                if(this.state.view === 'home') this.viewHome(canvas);
+                else if(this.state.view === 'theory') this.viewTheory(canvas);
+                else if(this.state.view === 'case') this.viewCase(canvas);
+                else if(this.state.view === 'application') this.viewApp(canvas);
+                else if(this.state.view === 'quiz') this.viewQuiz(canvas);
+                else if(this.state.view === 'resources') this.viewResources(canvas);
+                window.scrollTo(0,0);
+            },
+
+            viewHome: function(c) {
+                c.innerHTML = `
+                    <div class="max-w-7xl mx-auto px-4 py-16 text-center fade-up">
+                        <div class="inline-block px-4 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold mb-6 italic tracking-widest uppercase">Academic Module: ARCS Model</div>
+                        <h1 class="text-5xl md:text-7xl font-extrabold text-stone-900 mb-8 tracking-tight">Motivation is a<br><span class="text-orange-600">Design Responsibility.</span></h1>
+                        <p class="text-xl text-stone-600 max-w-3xl mx-auto mb-10 leading-relaxed">The ARCS Model transforms abstract learning theories into actionable strategies for digital education. This instructional application teaches you how to keep learners engaged from start to finish.</p>
+                        
+                        <div class="flex flex-col md:flex-row justify-center gap-4 mb-20">
+                            <button onclick="app.navigate('theory')" class="bg-stone-900 text-white px-10 py-4 rounded-xl font-bold hover:bg-black transition shadow-xl">Start Learning Theory</button>
+                            <button onclick="app.navigate('case')" class="bg-white border-2 border-stone-200 text-stone-700 px-10 py-4 rounded-xl font-bold hover:border-orange-400 transition">Interactive Case Study</button>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-12 text-left mb-20">
+                            <div class="bg-white p-10 rounded-3xl shadow-sm border border-stone-100">
+                                <h2 class="text-2xl font-bold mb-6 text-stone-900">Learning Objectives</h2>
+                                <ul class="space-y-4 text-stone-600">
+                                    <li class="flex items-start gap-3"><span class="text-orange-500 font-bold">✓</span> Explain the theoretical foundation of the ARCS Model.</li>
+                                    <li class="flex items-start gap-3"><span class="text-orange-500 font-bold">✓</span> Identify the sub-categories of Attention, Relevance, Confidence, and Satisfaction.</li>
+                                    <li class="flex items-start gap-3"><span class="text-orange-500 font-bold">✓</span> Analyze motivational challenges in e-learning environments.</li>
+                                    <li class="flex items-start gap-3"><span class="text-orange-500 font-bold">✓</span> Apply ARCS design strategies to digital learning contexts.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-stone-50 p-10 rounded-3xl border border-stone-200 flex flex-col justify-center">
+                                <h2 class="text-2xl font-bold mb-4 text-stone-900">The Architect: John Keller</h2>
+                                <p class="text-stone-600 mb-6 leading-relaxed text-sm">John M. Keller, an American educational psychologist, introduced the ARCS Model in the late 1970s. He argued that motivation is not a random trait but a system that can be intentionally designed using psychological principles.</p>
+                                <div class="p-4 bg-white rounded-xl border border-stone-100 italic text-stone-500 text-xs">"Keller’s work focuses on motivational design—the idea that learner motivation should be intentionally designed rather than assumed."</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            viewTheory: function(c) {
+                const active = appData.arcs[this.state.tab];
+                c.innerHTML = `
+                    <div class="max-w-5xl mx-auto px-4 py-12 fade-up">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-bold text-stone-900">The ARCS Framework Hub</h2>
+                            <p class="text-stone-500 mt-2">Instructional designers capture attention, establish relevance, build confidence, and reinforce satisfaction.</p>
+                        </div>
+
+                        <div class="bg-white rounded-3xl p-8 border border-stone-100 shadow-xl mb-12 flex flex-col items-center">
+                            <h4 class="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">Motivational Balance Radar</h4>
+                            <div class="chart-container">
+                                <canvas id="theoryChart"></canvas>
+                            </div>
+                            <p class="text-xs text-stone-400 mt-4 italic">A balanced design addresses all four pillars equally.</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
+                            ${Object.keys(appData.arcs).map(k => `
+                                <button onclick="app.state.tab='${k}'; app.render()" class="py-4 px-2 rounded-xl font-bold text-sm transition ${this.state.tab === k ? 'bg-stone-900 text-white shadow-lg' : 'bg-stone-100 text-stone-500 hover:bg-stone-200'}">
+                                    ${appData.arcs[k].title}
+                                </button>
+                            `).join('')}
+                        </div>
+
+                        <div class="bg-white p-10 rounded-3xl border border-stone-100 shadow-sm">
+                            <div class="flex items-center gap-6 mb-8">
+                                <div class="text-5xl p-4 bg-stone-50 rounded-2xl shadow-inner">${active.icon}</div>
+                                <div>
+                                    <h3 class="text-3xl font-bold text-stone-900">${active.title} Component</h3>
+                                    <p class="text-stone-500 mt-1">${active.desc}</p>
+                                </div>
+                            </div>
+                            
+                            <h4 class="font-bold text-stone-900 mb-4 border-b pb-2 text-sm uppercase tracking-wide">Detailed Sub-categories & Strategies</h4>
+                            <div class="grid md:grid-cols-2 gap-4 mb-8">
+                                ${active.sub.map(s => `
+                                    <div class="p-6 rounded-2xl bg-stone-50 border border-stone-100 hover:bg-white hover:shadow-md transition">
+                                        <h4 class="font-bold text-orange-600 mb-1 text-sm">${s.t}</h4>
+                                        <p class="text-xs text-stone-600 leading-relaxed">${s.d}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+
+                            <div class="bg-orange-50 p-6 rounded-2xl border border-orange-100">
+                                <h4 class="font-bold text-orange-800 text-xs uppercase mb-3">Digital Toolkit for ${active.title}</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    ${active.tools.map(t => `<span class="bg-white px-3 py-1 rounded-full text-xs font-bold text-orange-600 shadow-sm">${t}</span>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                this.renderTheoryChart();
+            },
+
+            viewCase: function(c) {
+                c.innerHTML = `
+                    <div class="max-w-4xl mx-auto px-4 py-16 fade-up">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-bold text-stone-900">Interactive Case Study</h2>
+                            <p class="text-stone-500">Put theory into practice by solving a common instructional challenge.</p>
+                        </div>
+                        <div class="bg-stone-900 rounded-3xl p-10 text-white shadow-2xl overflow-hidden relative">
+                            <div class="absolute top-0 right-0 p-8 opacity-10 text-8xl font-black">?</div>
+                            <h3 class="text-xl font-bold mb-6 flex items-center gap-3"><span class="h-8 w-8 bg-orange-500 rounded-full flex items-center justify-center text-xs">!</span> THE SCENARIO</h3>
+                            <p class="text-stone-300 mb-10 text-lg leading-relaxed">${appData.caseStudy.scenario}</p>
+                            
+                            <div id="case-result" class="hidden mb-10 p-6 rounded-xl bg-white/10 border border-white/20 animate-pulse">
+                                <p id="case-feedback" class="text-orange-400 font-bold italic"></p>
+                            </div>
+
+                            <div class="space-y-4">
+                                ${appData.caseStudy.options.map((o,i) => `
+                                    <button onclick="app.resolveCase(${i})" class="w-full text-left p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition flex justify-between items-center group">
+                                        <div class="flex flex-col">
+                                            <span class="text-xs text-stone-500 font-bold mb-1 uppercase tracking-widest">Option ${i+1}</span>
+                                            <span class="font-medium">${o.label}</span>
+                                        </div>
+                                        <span class="opacity-0 group-hover:opacity-100 transition translate-x-4 group-hover:translate-x-0">TRY THIS →</span>
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            resolveCase: function(idx) {
+                const res = document.getElementById('case-result');
+                const feed = document.getElementById('case-feedback');
+                res.classList.remove('hidden');
+                feed.innerText = appData.caseStudy.options[idx].feedback;
+            },
+
+            viewApp: function(c) {
+                const labs = [
+                    { t: "Attention", c: "Video Fatigue", s: "Micro-learning Content", d: "Break 60-minute lectures into 5-minute 'Knowledge Nuggets' paired with inquiry-based prompts." },
+                    { t: "Relevance", c: "Isolation", s: "Real-world Simulations", d: "Use branching scenarios that allow learners to make career-related decisions and see the results." },
+                    { t: "Confidence", c: "Tech Anxiety", s: "The Digital Sandbox", d: "Provide 'zero-stakes' practice sessions for new digital tools before they are used for assessment." },
+                    { t: "Satisfaction", c: "Delayed Feedback", s: "Instant Logic Feedback", d: "Use automated quiz systems that explain 'Why' an answer is wrong immediately, not days later." }
+                ];
+                c.innerHTML = `
+                    <div class="max-w-7xl mx-auto px-4 py-16 fade-up">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl font-bold">The E-Learning Lab</h2>
+                            <p class="text-stone-500 mt-4 max-w-2xl mx-auto leading-relaxed">E-learning offers flexibility but faces challenges like reduced interaction and high distractions. The ARCS model provides the solution.</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-16">
+                            <div class="bg-stone-800 text-stone-200 p-10 rounded-3xl shadow-lg border border-stone-700">
+                                <h3 class="text-xl font-bold text-white mb-6">Digital Challenges</h3>
+                                <div class="space-y-6">
+                                    <div class="flex gap-4">
+                                        <div class="h-8 w-8 rounded-full bg-red-900/50 flex items-center justify-center text-red-400 font-bold shrink-0">!</div>
+                                        <div><strong class="text-white block">Digital Distraction:</strong> Learners are one tab away from social media.</div>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <div class="h-8 w-8 rounded-full bg-red-900/50 flex items-center justify-center text-red-400 font-bold shrink-0">!</div>
+                                        <div><strong class="text-white block">Lack of Physical Cues:</strong> Teachers cannot see a 'confused' face online.</div>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <div class="h-8 w-8 rounded-full bg-red-900/50 flex items-center justify-center text-red-400 font-bold shrink-0">!</div>
+                                        <div><strong class="text-white block">Loneliness:</strong> Asynchronous learning can lead to total disengagement.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-10 rounded-3xl border border-stone-100 shadow-sm flex flex-col justify-center">
+                                <h3 class="text-xl font-bold text-stone-900 mb-6">Characteristics of e-Learning</h3>
+                                <p class="text-stone-500 text-sm mb-4">E-learning is distinct from traditional learning through:</p>
+                                <ul class="grid grid-cols-2 gap-4 text-xs font-bold text-stone-700">
+                                    <li class="p-3 bg-stone-50 rounded-lg border border-stone-100">💻 Electronic Technology</li>
+                                    <li class="p-3 bg-stone-50 rounded-lg border border-stone-100">🕒 Self-Paced Timing</li>
+                                    <li class="p-3 bg-stone-50 rounded-lg border border-stone-100">🌍 Remote Access</li>
+                                    <li class="p-3 bg-stone-50 rounded-lg border border-stone-100">📁 Multimedia Content</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold mb-8 text-center">ARCS Strategy Map</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            ${labs.map(l => `
+                                <div class="bg-white rounded-3xl border border-stone-100 p-8 shadow-sm hover-lift flex flex-col h-full">
+                                    <div class="mb-6">
+                                        <span class="text-stone-100 text-5xl font-black block leading-none mb-2">${l.t.charAt(0)}</span>
+                                        <h4 class="font-bold text-stone-900 text-lg">${l.t}</h4>
+                                    </div>
+                                    <div class="flex-grow space-y-4">
+                                        <div>
+                                            <span class="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-1">Challenge</span>
+                                            <p class="text-sm font-medium text-stone-800">${l.c}</p>
+                                        </div>
+                                        <div>
+                                            <span class="text-[10px] font-bold text-orange-600 uppercase tracking-widest block mb-1">ARCS Solution</span>
+                                            <p class="text-sm font-bold text-orange-700 mb-1">${l.s}</p>
+                                            <p class="text-xs text-stone-500 leading-relaxed">${l.d}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            },
+
+            viewQuiz: function(c) {
+                if(this.state.submitted) {
+                    this.viewResults(c);
+                    return;
+                }
+                c.innerHTML = `
+                    <div class="max-w-3xl mx-auto px-4 py-16 fade-up">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-bold mb-2">Mastery Check</h2>
+                            <p class="text-stone-500">Test your understanding of the ARCS Model and its application.</p>
+                        </div>
+                        <form id="qForm" class="space-y-6">
+                            ${appData.quiz.map((q,i) => `
+                                <div class="bg-white p-8 rounded-3xl border border-stone-100 shadow-sm">
+                                    <p class="font-bold text-stone-900 mb-6 text-lg"><span class="text-orange-600">Q${i+1}.</span> ${q.q}</p>
+                                    <div class="grid gap-3">
+                                        ${q.o.map((o,oi) => `
+                                            <label class="flex items-center gap-4 p-4 rounded-xl border border-stone-100 hover:bg-stone-50 cursor-pointer transition">
+                                                <input type="radio" name="q${i}" value="${oi}" class="w-4 h-4 text-orange-600">
+                                                <span class="text-sm font-medium text-stone-700">${o}</span>
+                                            </label>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            `).join('')}
+                            <button type="button" onclick="app.submitQuiz()" class="w-full bg-stone-900 text-white py-6 rounded-2xl font-bold text-xl hover:bg-black transition shadow-2xl">Submit My Score</button>
+                        </form>
+                    </div>
+                `;
+            },
+
+            submitQuiz: function() {
+                const f = new FormData(document.getElementById('qForm'));
+                let s = 0;
+                appData.quiz.forEach((q, i) => { if(parseInt(f.get('q'+i)) === q.a) s++; });
+                this.state.score = s;
+                this.state.submitted = true;
+                this.render();
+            },
+
+            viewResults: function(c) {
+                const perc = (this.state.score / 10) * 100;
+                c.innerHTML = `
+                    <div class="max-w-5xl mx-auto px-4 py-20 fade-up">
+                        <div class="bg-white rounded-3xl p-12 shadow-2xl text-center border border-stone-100">
+                            <h2 class="text-5xl font-extrabold mb-8 text-stone-900">Your Score: ${perc}%</h2>
+                            <div class="flex flex-col md:flex-row gap-12 items-center justify-center mb-12">
+                                <div class="chart-container" style="max-width:280px">
+                                    <canvas id="scoreChart"></canvas>
+                                </div>
+                                <div class="text-left max-w-sm">
+                                    <h3 class="text-2xl font-bold mb-4">${perc >= 80 ? '🌟 Mastery Achieved!' : '📚 Keep Studying'}</h3>
+                                    <p class="text-stone-500 leading-relaxed text-sm">You correctly answered ${this.state.score} out of 10 questions. Review the theory sections to sharpen your understanding of specific sub-categories like Inquiry Arousal and Motive Matching.</p>
+                                </div>
+                            </div>
+                            <button onclick="app.state.submitted=false; app.navigate('quiz')" class="bg-stone-900 text-white px-12 py-4 rounded-xl font-bold hover:bg-black transition">Retake Quiz</button>
+                        </div>
+
+                        <div class="mt-12 space-y-4">
+                            <h3 class="text-xl font-bold mb-6 text-center">Answer Explanations</h3>
+                            ${appData.quiz.map((q,i) => `
+                                <div class="p-6 bg-white rounded-2xl border border-stone-100 text-sm">
+                                    <p class="font-bold mb-2">Q${i+1}: ${q.q}</p>
+                                    <p class="text-orange-600 font-bold mb-1 italic">Correct Answer: ${q.o[q.a]}</p>
+                                    <p class="text-stone-500">${q.e}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                setTimeout(() => {
+                    new Chart(document.getElementById('scoreChart').getContext('2d'), {
+                        type: 'doughnut',
+                        data: { datasets: [{ data: [this.state.score, 10-this.state.score], backgroundColor: ['#EA580C', '#E2E8F0'], borderWidth: 0 }] },
+                        options: { cutout: '85%', plugins: { legend: {display: false} } }
+                    });
+                }, 100);
+            },
+
+            viewResources: function(c) {
+                c.innerHTML = `
+                    <div class="max-w-4xl mx-auto px-4 py-16 fade-up">
+                        <div class="bg-white p-12 rounded-3xl shadow-xl">
+                            <h2 class="text-3xl font-bold mb-8">Academic Resources</h2>
+                            <div class="space-y-8 text-stone-600">
+                                <div>
+                                    <h4 class="font-bold text-stone-900 mb-2">Primary Literature</h4>
+                                    <p class="border-l-4 border-orange-500 pl-4 italic mb-4">Keller, J. M. (1987). Development and use of the ARCS model of instructional design. Journal of Instructional Development, 10(3), 2-10.</p>
+                                    <p class="border-l-4 border-orange-500 pl-4 italic">Keller, J. M. (2010). Motivational Design for Learning and Performance: The ARCS Model Approach. Springer Science & Business Media.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 mb-2">Course Material</h4>
+                                    <p class="border-l-4 border-orange-500 pl-4 italic">QIM513 Course Handbook. Instructional Design and Delivery. Universiti Sains Malaysia. (2025).</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 mb-2">E-Learning Frameworks</h4>
+                                    <p class="border-l-4 border-orange-500 pl-4 italic">Mayer, R. E. (2021). Multimedia Learning (3rd ed.). Cambridge University Press.</p>
+                                    <p class="border-l-4 border-orange-500 pl-4 italic">Arshavskiy, M. (2013). Instructional Design for ELearning: Essential Guide.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderTheoryChart: function() {
+                setTimeout(() => {
+                    const ctx = document.getElementById('theoryChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'radar',
+                        data: {
+                            labels: ['Attention', 'Relevance', 'Confidence', 'Satisfaction'],
+                            datasets: [{
+                                label: 'Model Weight',
+                                data: [95, 88, 85, 90],
+                                backgroundColor: 'rgba(234, 88, 12, 0.2)',
+                                borderColor: '#EA580C',
+                                borderWidth: 2,
+                                pointBackgroundColor: '#EA580C'
+                            }]
+                        },
+                        options: {
+                            maintainAspectRatio: false,
+                            scales: { r: { min: 0, max: 100, ticks: { display: false }, grid: { color: '#E2E8F0' } } },
+                            plugins: { legend: { display: false } }
+                        }
+                    });
+                }, 100);
+            }
+        };
+
+        window.onload = () => app.init();
+    </script>
+</body>
+</html>
