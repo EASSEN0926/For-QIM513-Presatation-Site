@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relevance (R) — ARCS Model</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --brand:#0b3b88; --accent:#f2d200; }
+    html{scroll-behavior:smooth;}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
+    .marker{background:linear-gradient(90deg, rgba(242,210,0,0), rgba(242,210,0,1), rgba(242,210,0,0));height:6px;border-radius:999px;}
+    .shadow-soft{ box-shadow: 0 12px 30px rgba(2,6,23,.12); }
+    .glass{ background: rgba(255,255,255,.78); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.35); }
+    .pill{ background: rgba(11,59,136,.08); border: 1px solid rgba(11,59,136,.15); }
+    .divider{background:linear-gradient(90deg, rgba(11,59,136,0), rgba(11,59,136,.3), rgba(11,59,136,0));height:1px;}
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    .tag{ border:1px solid rgba(148,163,184,.35); background: rgba(248,250,252,.8); }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <a href="index.html" class="flex flex-col leading-tight">
+      <div class="font-extrabold text-slate-900">ARCS Model</div>
+      <div class="text-xs text-slate-600">Application in e-learning</div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">A</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="relevance.html">R</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">C</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">S</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </nav>
+
+    <button id="menuBtn" class="md:hidden px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100">Menu</button>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">Attention (A)</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="relevance.html">Relevance (R)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">Confidence (C)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">Satisfaction (S)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4">
+
+  <!-- Hero -->
+  <section class="pt-10 pb-8">
+    <div class="marker w-20 mb-5"></div>
+
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-7">
+        <h1 class="text-4xl md:text-5xl font-black leading-tight">
+          Relevance (R): “Why should I care?”
+        </h1>
+        <p class="mt-5 text-lg text-slate-700">
+          Even if learners are attentive, motivation drops when they do not see value.
+          <b>Relevance</b> connects learning to goals, identity, experience, and future use—especially important in e-learning where learners study independently.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#subcategories" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+            Sub-categories & Strategies
+          </a>
+          <a href="#examples" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            E-learning Examples
+          </a>
+          <a href="#builder" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            Relevance Builder
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick summary card -->
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+          <div class="text-sm font-bold text-slate-700">Key idea</div>
+          <div class="text-2xl font-black mt-2">Relevance is engineered</div>
+          <p class="mt-3 text-slate-700">
+            Relevance is not “obvious” to learners. Designers must explain purpose, connect to experience,
+            and show how learning can be used.
+          </p>
+
+          <div class="divider my-6"></div>
+
+          <div class="grid gap-3 text-sm">
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Clarify purpose</div>
+              <div class="text-slate-700 mt-1">What will learners be able to do—and why it matters.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Connect to context</div>
+              <div class="text-slate-700 mt-1">Use examples that match learners’ roles or experiences.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Show future usefulness</div>
+              <div class="text-slate-700 mt-1">Demonstrate real applications in school or workplace.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-categories -->
+  <section id="subcategories" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Sub-categories of Relevance (Keller)</h2>
+    <p class="mt-3 text-slate-700">
+      Relevance strategies help learners connect new content to personal goals and meaningful outcomes.
+      In practice, relevance often becomes stronger when designers guide learners through:
+      <b>goals</b> → <b>personal connection</b> → <b>future use</b>.
+    </p>
+
+    <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">R1</div>
+        <div class="text-xl font-black mt-2">Goal Orientation</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Explain the learning goal and how success will be demonstrated.
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>“By the end, you can…” statements</li>
+          <li>Rubric highlights</li>
+          <li>Example of a strong output</li>
+        </ul>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">R2</div>
+        <div class="text-xl font-black mt-2">Motive Matching</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Align activities with what learners care about (interests, needs, values).
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Choice of examples</li>
+          <li>Role-based paths</li>
+          <li>Optional challenge tasks</li>
+        </ul>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">R3</div>
+        <div class="text-xl font-black mt-2">Familiarity</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Connect new content to prior knowledge or common experiences.
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Analogies and examples</li>
+          <li>“You may have seen…” cues</li>
+          <li>Bridge from known → new</li>
+        </ul>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">R4</div>
+        <div class="text-xl font-black mt-2">Future Usefulness</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Show how learning can be used beyond the lesson (transfer).
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Workplace scenarios</li>
+          <li>Academic applications</li>
+          <li>“Next time you…” prompts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 rounded-3xl bg-[var(--brand)] text-white p-7 shadow-soft">
+      <div class="text-2xl font-black">Design rule of thumb</div>
+      <p class="mt-2 opacity-90">
+        Don’t just state relevance once. Reinforce it repeatedly:
+        at the start (purpose), during learning (connections), and near the end (application).
+      </p>
+    </div>
+  </section>
+
+  <!-- Relevance Builder (mini tool) -->
+  <section id="builder" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Relevance Builder (quick tool)</h2>
+    <p class="mt-3 text-slate-700">
+      Use this tool to generate a relevance statement for any lesson topic.
+      (This makes the website feel like an instructional application rather than a text page.)
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-sm font-bold text-slate-700">Step 1 — Choose a learner context</div>
+        <div class="mt-4 grid sm:grid-cols-2 gap-3">
+          <button class="ctxBtn tag rounded-2xl p-4 text-left hover:bg-slate-50" data-ctx="University online course (student)">
+            <div class="font-bold">University</div>
+            <div class="text-sm text-slate-600 mt-1">Online course learner</div>
+          </button>
+          <button class="ctxBtn tag rounded-2xl p-4 text-left hover:bg-slate-50" data-ctx="Corporate training (employee)">
+            <div class="font-bold">Corporate</div>
+            <div class="text-sm text-slate-600 mt-1">Workplace learner</div>
+          </button>
+        </div>
+
+        <div class="divider my-6"></div>
+
+        <div class="text-sm font-bold text-slate-700">Step 2 — Enter a lesson topic</div>
+        <input id="topic" class="mt-3 w-full rounded-2xl border border-slate-200 p-4 focus:outline-none focus:ring-2 focus:ring-[var(--brand)]"
+               placeholder="Example: Cybersecurity basics / Research methods / Project management" />
+
+        <div class="mt-5 text-sm font-bold text-slate-700">Step 3 — Pick the relevance angle</div>
+        <div class="mt-3 grid sm:grid-cols-2 gap-3">
+          <button class="angleBtn tag rounded-2xl p-4 text-left hover:bg-slate-50" data-angle="Goal orientation">
+            <div class="font-bold">Goal orientation</div>
+            <div class="text-sm text-slate-600 mt-1">What will you be able to do?</div>
+          </button>
+          <button class="angleBtn tag rounded-2xl p-4 text-left hover:bg-slate-50" data-angle="Familiarity">
+            <div class="font-bold">Familiarity</div>
+            <div class="text-sm text-slate-600 mt-1">What do you already know?</div>
+          </button>
+          <button class="angleBtn tag rounded-2xl p-4 text-left hover:bg-slate-50" data-angle="Motive matching">
+            <div class="font-bold">Motive matching</div>
+            <div class="text-sm text-slate-600 mt-1">Why is this personally meaningful?</div>
+          </button>
+          <button class="angleBtn tag rounded-2xl p-4 text-left hover:bg-slate-50" data-angle="Future usefulness">
+            <div class="font-bold">Future usefulness</div>
+            <div class="text-sm text-slate-600 mt-1">How will you use it later?</div>
+          </button>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <button id="buildBtn" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+            Build a relevance statement
+          </button>
+          <button id="resetBtn" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="text-sm font-bold text-slate-700">Output</div>
+            <div class="text-2xl font-black mt-1">Your relevance message</div>
+            <p class="mt-2 text-sm text-slate-700">
+              Copy this into an e-learning module intro, a lesson header, or a “Why this matters” callout.
+            </p>
+          </div>
+          <span class="pill px-4 py-2 rounded-full text-sm font-bold">Interactive</span>
+        </div>
+
+        <div id="output" class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-slate-800 text-sm">
+          Select a context and an angle, then click “Build”.
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-slate-200 p-5">
+          <div class="font-bold">Pro tip</div>
+          <p class="text-sm text-slate-700 mt-1">
+            Strong relevance messages typically include: <b>learner identity</b> + <b>purpose</b> + <b>use case</b>.
+            Example: “As a new analyst, you’ll use this to…” or “In your next assignment, this helps you…”
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples -->
+  <section id="examples" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">E-learning Examples (university + corporate)</h2>
+    <p class="mt-3 text-slate-700">
+      These examples show how relevance can be built into an online lesson—not just stated once.
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-3 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 1: University</div>
+        <p class="mt-2 text-sm text-slate-700">
+          A research methods module starts with a clear academic purpose.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Why it matters:</b> “This skill will help you design your final project study and interpret results correctly.”
+        </div>
+        <div class="mt-4 text-sm text-slate-700">
+          <b>Relevance strategy:</b> Goal Orientation + Future Usefulness
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 2: Corporate</div>
+        <p class="mt-2 text-sm text-slate-700">
+          A cybersecurity lesson uses role-based framing.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Role frame:</b> “As a team member handling client files, you’ll apply this to avoid phishing and data leaks.”
+        </div>
+        <div class="mt-4 text-sm text-slate-700">
+          <b>Relevance strategy:</b> Motive Matching + Future Usefulness
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 3: Familiarity bridge</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Start from what learners already know to reduce distance.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Bridge:</b> “You’ve probably used online quizzes—now we’ll look at why feedback timing affects motivation.”
+        </div>
+        <div class="mt-4 text-sm text-slate-700">
+          <b>Relevance strategy:</b> Familiarity
+        </div>
+      </div>
+    </div>
+
+    <!-- Do/Don't -->
+    <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="text-2xl font-black">Do / Don’t (Relevance)</div>
+      <div class="mt-5 grid md:grid-cols-2 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <div class="font-black text-[var(--brand)]">Do</div>
+          <ul class="mt-3 text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>State purpose in learner language (“You will be able to…”)</li>
+            <li>Use examples tied to roles and real tasks</li>
+            <li>Show future use (assignment, job task, real scenario)</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <div class="font-black text-red-600">Don’t</div>
+          <ul class="mt-3 text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Assume relevance is obvious</li>
+            <li>Use generic examples with no context</li>
+            <li>Explain relevance once and never return to it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12">
+    <div class="rounded-3xl bg-[var(--brand)] text-white p-8 shadow-soft">
+      <div class="text-2xl font-black">Next: Confidence (C)</div>
+      <p class="mt-2 opacity-90">
+        After learners see value, they still need to believe success is achievable.
+        The Confidence page focuses on expectations, scaffolding, feedback, and learner control.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="confidence.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-white text-[var(--brand)] font-black hover:opacity-95">
+          Go to Confidence →
+        </a>
+        <a href="assessment.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-white/30 font-black hover:bg-white/10">
+          Take Assessment
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-slate-200/60 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+    Relevance (R) — ARCS Model | QIM513
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  // Relevance Builder logic
+  let selectedCtx = "";
+  let selectedAngle = "";
+
+  const ctxBtns = document.querySelectorAll('.ctxBtn');
+  const angleBtns = document.querySelectorAll('.angleBtn');
+  const topicInput = document.getElementById('topic');
+  const output = document.getElementById('output');
+
+  function markSelected(btns, btn){
+    btns.forEach(b => b.classList.remove('ring-2','ring-[var(--brand)]','bg-slate-50'));
+    btn.classList.add('ring-2','ring-[var(--brand)]','bg-slate-50');
+  }
+
+  ctxBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedCtx = btn.dataset.ctx;
+      markSelected(ctxBtns, btn);
+    });
+  });
+
+  angleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedAngle = btn.dataset.angle;
+      markSelected(angleBtns, btn);
+    });
+  });
+
+  function buildMessage(ctx, topic, angle){
+    const t = (topic || "this topic").trim();
+    const isUni = ctx.includes("University");
+    const isCorp = ctx.includes("Corporate");
+
+    if(!ctx || !angle) return "Select a context and an angle, then click “Build”.";
+
+    if(angle === "Goal orientation"){
+      return isUni
+        ? `As a university learner, studying ${t} will help you produce stronger academic work—especially when you need to explain concepts clearly in assignments and exams.`
+        : `As a workplace learner, ${t} supports performance at work by clarifying what “good” looks like and what you should be able to do after training.`;
+    }
+
+    if(angle === "Familiarity"){
+      return isUni
+        ? `You already have experiences related to ${t} (through lectures, readings, or past coursework). This lesson builds from what you know and helps you organize it into a clearer framework.`
+        : `You’ve likely encountered situations related to ${t} at work. This lesson connects those real experiences to practical strategies you can use immediately.`;
+    }
+
+    if(angle === "Motive matching"){
+      return isUni
+        ? `This lesson on ${t} is designed to feel personally meaningful: you will choose examples that match your interests and apply ideas to contexts you care about.`
+        : `This lesson on ${t} fits workplace motives by focusing on realistic tasks, efficiency, and decision-making—so it feels relevant to your daily responsibilities.`;
+    }
+
+    // Future usefulness
+    return isUni
+      ? `Learning ${t} has clear future usefulness: it will support your upcoming projects, help you analyze cases more effectively, and strengthen your ability to apply theory in real scenarios.`
+      : `Learning ${t} has future usefulness at work: you can apply it to real tasks, improve decisions, reduce mistakes, and demonstrate competence in role-based situations.`;
+  }
+
+  document.getElementById('buildBtn').addEventListener('click', () => {
+    const msg = buildMessage(selectedCtx, topicInput.value, selectedAngle);
+    output.textContent = msg;
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    selectedCtx = "";
+    selectedAngle = "";
+    topicInput.value = "";
+    output.textContent = "Select a context and an angle, then click “Build”.";
+    ctxBtns.forEach(b => b.classList.remove('ring-2','ring-[var(--brand)]','bg-slate-50'));
+    angleBtns.forEach(b => b.classList.remove('ring-2','ring-[var(--brand)]','bg-slate-50'));
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+
+</body>
+</html>
