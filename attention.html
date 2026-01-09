@@ -6,277 +6,450 @@
   <title>Attention (A) — ARCS Model</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root { --brand:#0b3b88; }
-    html { scroll-behavior: smooth; }
-    body { font-family: ui-sans-serif, system-ui; }
-    .shadow-soft { box-shadow: 0 12px 30px rgba(2,6,23,.12); }
-    .divider { height:1px; background:linear-gradient(90deg, transparent, #cbd5e1, transparent); }
-    .pill { background: rgba(11,59,136,.08); border: 1px solid rgba(11,59,136,.15); }
+    :root{ --brand:#0b3b88; --accent:#f2d200; }
+    html{scroll-behavior:smooth;}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
+    .marker{background:linear-gradient(90deg, rgba(242,210,0,0), rgba(242,210,0,1), rgba(242,210,0,0));height:6px;border-radius:999px;}
+    .shadow-soft{ box-shadow: 0 12px 30px rgba(2,6,23,.12); }
+    .glass{ background: rgba(255,255,255,.78); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.35); }
+    .pill{ background: rgba(11,59,136,.08); border: 1px solid rgba(11,59,136,.15); }
+    .divider{background:linear-gradient(90deg, rgba(11,59,136,0), rgba(11,59,136,.3), rgba(11,59,136,0));height:1px;}
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
   </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900">
 
-<!-- Navigation -->
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
-  <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="index.html" class="font-black text-lg">ARCS Model</a>
-    <div class="hidden md:flex gap-4 text-sm font-semibold">
-      <a href="index.html">Home</a>
-      <a href="attention.html" class="underline">A</a>
-      <a href="relevance.html">R</a>
-      <a href="confidence.html">C</a>
-      <a href="satisfaction.html">S</a>
-      <a href="elearning.html">E-learning</a>
-      <a href="assessment.html">Assessment</a>
-      <a href="resources.html">Resources</a>
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <a href="index.html" class="flex flex-col leading-tight">
+      <div class="font-extrabold text-slate-900">ARCS Model</div>
+      <div class="text-xs text-slate-600">Application in e-learning</div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="attention.html">A</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">R</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">C</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">S</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </nav>
+
+    <button id="menuBtn" class="md:hidden px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100">Menu</button>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="attention.html">Attention (A)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">Relevance (R)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">Confidence (C)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">Satisfaction (S)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
     </div>
-  </nav>
+  </div>
 </header>
 
-<main class="max-w-6xl mx-auto px-4 py-10">
+<main class="max-w-6xl mx-auto px-4">
 
   <!-- Hero -->
-  <section class="grid lg:grid-cols-2 gap-10 items-start">
-    <div>
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full pill text-sm font-bold">
-        ARCS Component
-        <span class="text-[var(--brand)]">Attention (A)</span>
+  <section class="pt-10 pb-8">
+    <div class="marker w-20 mb-5"></div>
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-7">
+        <h1 class="text-4xl md:text-5xl font-black leading-tight">
+          Attention (A): the entry point of motivation
+        </h1>
+        <p class="mt-5 text-lg text-slate-700">
+          In e-learning, learners can leave at any moment. <b>Attention</b> is the first “gate”:
+          if we don’t capture and sustain attention, the rest of ARCS (Relevance, Confidence, Satisfaction)
+          has no chance to work.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#subcategories" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+            Sub-categories & Strategies
+          </a>
+          <a href="#examples" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            E-learning Examples
+          </a>
+          <a href="#toolkit" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            Attention Toolkit
+          </a>
+        </div>
+
+        <!-- ✅ NEW: Hero visual (uses your existing image) -->
+        <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
+          <div class="p-5">
+            <div class="text-sm font-bold text-slate-700">Visual cue</div>
+            <div class="text-xl font-black mt-1">Curiosity is a powerful attention trigger</div>
+            <div class="divider my-4"></div>
+            <img src="attention-curiosity.jpg" alt="Attention and curiosity visual" class="w-full h-auto rounded-2xl" loading="lazy">
+            <p class="mt-2 text-xs text-slate-600 italic">
+              Figure: Curiosity and inquiry prompts help learners enter the task and stay engaged.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <h1 class="mt-4 text-4xl font-black leading-tight">
-        Attention: the entry point of motivation
-      </h1>
+      <!-- Quick summary card -->
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+          <div class="text-sm font-bold text-slate-700">Key idea</div>
+          <div class="text-2xl font-black mt-2">Attention ≠ entertainment</div>
+          <p class="mt-3 text-slate-700">
+            Attention design means learners (1) notice the key idea, (2) stay engaged long enough
+            to process and practice, and (3) focus on what matters.
+          </p>
 
-      <p class="mt-4 text-lg text-slate-700">
-        In Keller’s ARCS Model, attention is not simply “making learning fun.”
-        It refers to designing conditions that help learners <b>notice the learning task</b>,
-        become mentally engaged, and remain engaged long enough to learn.
-      </p>
+          <div class="divider my-6"></div>
 
-      <p class="mt-4 text-slate-700">
-        In e-learning, attention is especially fragile because learners often study alone,
-        face constant distractions, and can leave the lesson at any moment.
-        That is why attention functions as a motivational gate: if attention is not gained,
-        relevance, confidence, and satisfaction cannot effectively operate.
-      </p>
+          <div class="grid gap-3 text-sm">
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Capture</div>
+              <div class="text-slate-700 mt-1">Hook curiosity: surprise, problem, question, story.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Sustain</div>
+              <div class="text-slate-700 mt-1">Keep rhythm: variety, micro-tasks, interaction.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Direct</div>
+              <div class="text-slate-700 mt-1">Signal what matters: headings, spacing, minimal noise.</div>
+            </div>
+          </div>
 
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#subcategories" class="px-5 py-3 rounded-xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
-          Sub-categories
-        </a>
-        <a href="#strategies" class="px-5 py-3 rounded-xl border border-slate-200 font-bold hover:bg-slate-100">
-          Design strategies
-        </a>
-        <a href="#micro-activity" class="px-5 py-3 rounded-xl border border-slate-200 font-bold hover:bg-slate-100">
-          Mini activity
-        </a>
+          <!-- ✅ NEW: Small visual reinforcement inside the summary column (same image, but optional and subtle) -->
+          <div class="mt-6 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
+            <div class="text-xs font-bold text-slate-600">Reminder</div>
+            <div class="text-sm text-slate-700 mt-1">
+              Use curiosity prompts to start, and interactions to maintain cognitive engagement.
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div>
-      <img src="attention-curiosity.jpg"
-           alt="Curiosity and attention in learning"
-           class="w-full rounded-2xl shadow-soft">
-      <p class="mt-2 text-sm text-slate-600 italic">
-        Figure: Curiosity is often the fastest way to gain initial learner attention.
-      </p>
     </div>
   </section>
 
   <!-- Sub-categories -->
-  <section id="subcategories" class="mt-16">
-    <h2 class="text-3xl font-black">Sub-categories of Attention</h2>
-    <div class="divider my-4"></div>
-
-    <p class="text-slate-700 max-w-3xl">
-      Keller describes attention as something that can be intentionally triggered and sustained
-      through different mechanisms. In instructional design, attention can be supported through:
+  <section id="subcategories" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Sub-categories of Attention (Keller)</h2>
+    <p class="mt-3 text-slate-700">
+      Keller describes attention as something designers can plan. In practice, attention strategies often fall into:
+      <b>Perceptual Arousal</b>, <b>Inquiry Arousal</b>, and <b>Variability</b>.
     </p>
 
-    <div class="mt-6 grid md:grid-cols-3 gap-5">
-      <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-6">
+    <!-- ✅ NEW: A visual reference card before the 3 columns (still uses your same image) -->
+    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
+      <div class="p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="text-sm font-bold text-slate-700">Why visuals matter</div>
+            <div class="text-2xl font-black mt-1">Perceptual + Inquiry Arousal often start with a cue</div>
+            <p class="mt-2 text-slate-700 text-sm">
+              In online lessons, learners often scan quickly. A clear visual cue can function as a “pattern break”
+              and a prompt for curiosity—then your design must guide attention toward the learning goal.
+            </p>
+          </div>
+          <span class="pill px-4 py-2 rounded-full text-sm font-bold">A</span>
+        </div>
+        <div class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
+          <img src="attention-curiosity.jpg" alt="Curiosity triggers attention" class="w-full h-auto rounded-2xl" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
         <div class="text-xs font-bold text-slate-600">A1</div>
-        <div class="mt-2 text-xl font-black">Perceptual Arousal</div>
-        <p class="mt-2 text-sm text-slate-700">
-          Gaining attention through novelty, surprise, or visual changes that interrupt routine thinking.
+        <div class="text-xl font-black mt-2">Perceptual Arousal</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Capture attention through novelty or surprise (visual, audio, or pattern break).
         </p>
         <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
-          <li>Unexpected examples or visuals</li>
-          <li>Short, strong hooks</li>
-          <li>Pattern breaks in slides/videos</li>
+          <li>Unexpected statistic</li>
+          <li>Short “pattern-break” animation</li>
+          <li>Strong contrast to highlight key content</li>
         </ul>
       </div>
 
-      <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-6">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
         <div class="text-xs font-bold text-slate-600">A2</div>
-        <div class="mt-2 text-xl font-black">Inquiry Arousal</div>
-        <p class="mt-2 text-sm text-slate-700">
-          Creating curiosity by presenting a question, problem, or gap that learners want to resolve.
+        <div class="text-xl font-black mt-2">Inquiry Arousal</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Trigger curiosity by creating a “knowledge gap” learners want to close.
         </p>
         <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
-          <li>Prediction questions</li>
-          <li>Small puzzles or scenarios</li>
-          <li>“What would you do?” prompts</li>
+          <li>Prediction question</li>
+          <li>Mini case: “What would you do?”</li>
+          <li>Reveal-after-choice feedback</li>
         </ul>
       </div>
 
-      <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-6">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
         <div class="text-xs font-bold text-slate-600">A3</div>
-        <div class="mt-2 text-xl font-black">Variability</div>
-        <p class="mt-2 text-sm text-slate-700">
-          Sustaining attention by changing the pace, format, or interaction type so learners do not disengage.
+        <div class="text-xl font-black mt-2">Variability</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Sustain attention by varying format and activity (without losing focus).
         </p>
         <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
-          <li>Mix short videos + questions</li>
-          <li>Visual + text alternation</li>
-          <li>Micro-practice moments</li>
+          <li>Micro-video → quick check</li>
+          <li>Diagram → short task</li>
+          <li>Interactive element every few minutes</li>
         </ul>
       </div>
     </div>
-  </section>
 
-  <!-- Strategies -->
-  <section id="strategies" class="mt-16">
-    <h2 class="text-3xl font-black">Attention Design Strategies in E-learning</h2>
-    <div class="divider my-4"></div>
-
-    <p class="text-slate-700 max-w-3xl">
-      Below is a practical checklist that translates the attention component into concrete design actions.
-      These strategies help learners begin and continue the learning task.
-    </p>
-
-    <div class="mt-6 grid lg:grid-cols-2 gap-6">
-      <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-6">
-        <div class="text-xl font-black">1) Hook with purpose</div>
-        <p class="mt-2 text-slate-700 text-sm">
-          Open with a hook that is directly related to the learning objective (not random entertainment).
-        </p>
-        <div class="mt-3 text-sm text-slate-700 bg-slate-50 border border-slate-200 rounded-xl p-4">
-          <b>Example:</b> “Which ARCS component fails most often in online learning—and why?”
-        </div>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-6">
-        <div class="text-xl font-black">2) Ask inquiry questions</div>
-        <p class="mt-2 text-slate-700 text-sm">
-          Use prediction questions to create curiosity and a reason to keep watching or reading.
-        </p>
-        <div class="mt-3 text-sm text-slate-700 bg-slate-50 border border-slate-200 rounded-xl p-4">
-          <b>Example:</b> “Before we define Attention, predict one reason learners drop out of online courses.”
-        </div>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-6">
-        <div class="text-xl font-black">3) Plan micro-interactions</div>
-        <p class="mt-2 text-slate-700 text-sm">
-          Add short actions every few minutes so learners are not passive: click, choose, reflect, or type.
-        </p>
-        <div class="mt-3 text-sm text-slate-700 bg-slate-50 border border-slate-200 rounded-xl p-4">
-          <b>Example:</b> “Choose the best hook for this lesson” (A/B/C).
-        </div>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl shadow-soft p-6">
-        <div class="text-xl font-black">4) Reduce distraction with signaling</div>
-        <p class="mt-2 text-slate-700 text-sm">
-          Keep screens focused and use visual cues to highlight what matters most.
-        </p>
-        <div class="mt-3 text-sm text-slate-700 bg-slate-50 border border-slate-200 rounded-xl p-4">
-          <b>Example:</b> One key idea per screen + bolded keywords + short sections.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mini Activity -->
-  <section id="micro-activity" class="mt-16">
-    <h2 class="text-3xl font-black">Mini Activity: Identify the best Attention strategy</h2>
-    <div class="divider my-4"></div>
-
-    <p class="text-slate-700 max-w-3xl">
-      Situation: A learner opens an online module but leaves within the first 30 seconds.
-      Which design change best addresses the Attention problem?
-    </p>
-
-    <div class="mt-6 bg-white border border-slate-200 rounded-2xl shadow-soft p-6">
-      <div class="grid md:grid-cols-3 gap-3">
-        <button class="ansBtn border border-slate-200 rounded-xl p-4 text-left hover:bg-slate-50" data-correct="true">
-          <div class="font-bold">Option A</div>
-          <div class="text-sm text-slate-700 mt-1">
-            Add a purposeful hook + a prediction question + a quick interaction in the first minute.
-          </div>
-        </button>
-
-        <button class="ansBtn border border-slate-200 rounded-xl p-4 text-left hover:bg-slate-50" data-correct="false">
-          <div class="font-bold">Option B</div>
-          <div class="text-sm text-slate-700 mt-1">
-            Make the introduction longer so learners understand the seriousness of the course.
-          </div>
-        </button>
-
-        <button class="ansBtn border border-slate-200 rounded-xl p-4 text-left hover:bg-slate-50" data-correct="false">
-          <div class="font-bold">Option C</div>
-          <div class="text-sm text-slate-700 mt-1">
-            Remove all visuals and use only text so learners focus on reading.
-          </div>
-        </button>
-      </div>
-
-      <div id="feedback" class="mt-4 hidden bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm text-slate-800"></div>
-    </div>
-  </section>
-
-  <!-- Next -->
-  <section class="mt-16">
-    <div class="bg-[var(--brand)] text-white rounded-2xl shadow-soft p-8">
-      <div class="text-2xl font-black">Next Component: Relevance (R)</div>
+    <div class="mt-8 rounded-3xl bg-[var(--brand)] text-white p-7 shadow-soft">
+      <div class="text-2xl font-black">Design rule of thumb</div>
       <p class="mt-2 opacity-90">
-        Once attention is gained, the next question is whether learners perceive the content as meaningful:
-        “Why should I care?” That is the focus of Relevance.
+        In e-learning, aim for a small interaction or decision point every <b>2–4 minutes</b>
+        (click, choose, predict, drag, reflect). That keeps learners cognitively active.
       </p>
-      <div class="mt-5">
-        <a href="relevance.html" class="inline-flex px-5 py-3 bg-white text-[var(--brand)] font-black rounded-xl hover:opacity-95">
+    </div>
+  </section>
+
+  <!-- Strategy toolkit (expandable) -->
+  <section id="toolkit" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Attention Toolkit (practical strategies)</h2>
+    <p class="mt-3 text-slate-700">
+      Use these strategies when designing screens, modules, or lessons. Each item includes
+      a quick “how to implement” tip for online learning.
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-2 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <details class="group">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <div class="font-black text-lg">1) Define the attention goal</div>
+            <div class="text-sm font-bold text-[var(--brand)] group-open:rotate-180 transition">⌄</div>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">
+            Decide what learners must notice right now (a concept, misconception, or skill).
+            This prevents “interesting but irrelevant” elements.
+          </p>
+          <div class="mt-3 pill rounded-2xl p-4 text-sm text-slate-700">
+            <b>Implementation:</b> Add a one-sentence “This screen is about…” at the top of your storyboard.
+          </div>
+        </details>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <details class="group">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <div class="font-black text-lg">2) Create an opening hook</div>
+            <div class="text-sm font-bold text-[var(--brand)] group-open:rotate-180 transition">⌄</div>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">
+            Start with a short scenario, surprising fact, or relatable problem connected to the lesson outcome.
+          </p>
+          <div class="mt-3 pill rounded-2xl p-4 text-sm text-slate-700">
+            <b>Implementation:</b> Use a 10–15 second “problem prompt” before any definitions.
+          </div>
+        </details>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <details class="group">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <div class="font-black text-lg">3) Trigger inquiry with questions</div>
+            <div class="text-sm font-bold text-[var(--brand)] group-open:rotate-180 transition">⌄</div>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">
+            Use guiding questions or prediction prompts to create curiosity: “What do you think will happen?”
+          </p>
+          <div class="mt-3 pill rounded-2xl p-4 text-sm text-slate-700">
+            <b>Implementation:</b> Add a “predict → reveal” interaction before showing the correct model/example.
+          </div>
+        </details>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <details class="group">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <div class="font-black text-lg">4) Add planned variability</div>
+            <div class="text-sm font-bold text-[var(--brand)] group-open:rotate-180 transition">⌄</div>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">
+            Change format periodically—micro-video, diagram, short reading, or mini task—so attention doesn’t fade.
+          </p>
+          <div class="mt-3 pill rounded-2xl p-4 text-sm text-slate-700">
+            <b>Implementation:</b> “Explain → show → do” pattern: 60–90 seconds each.
+          </div>
+        </details>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <details class="group">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <div class="font-black text-lg">5) Build interaction moments</div>
+            <div class="text-sm font-bold text-[var(--brand)] group-open:rotate-180 transition">⌄</div>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">
+            Insert simple actions: click-to-reveal, choose an option, drag-and-drop, or short reflection.
+            Interaction turns learners from viewers into participants.
+          </p>
+          <div class="mt-3 pill rounded-2xl p-4 text-sm text-slate-700">
+            <b>Implementation:</b> Use “one-click checks” (single question) between segments.
+          </div>
+        </details>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <details class="group">
+          <summary class="flex items-center justify-between cursor-pointer">
+            <div class="font-black text-lg">6) Reduce distractions with signaling</div>
+            <div class="text-sm font-bold text-[var(--brand)] group-open:rotate-180 transition">⌄</div>
+          </summary>
+          <p class="mt-3 text-sm text-slate-700">
+            Highlight key ideas using headings, spacing, and visual cues. Remove unnecessary text/visuals so attention stays on what matters.
+          </p>
+          <div class="mt-3 pill rounded-2xl p-4 text-sm text-slate-700">
+            <b>Implementation:</b> One key message per screen. Use bold/contrast for the “must notice” line.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-learning examples + mini interaction -->
+  <section id="examples" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">E-learning Examples (how Attention looks on screen)</h2>
+    <p class="mt-3 text-slate-700">
+      Even without special images, you can design attention through structure and interaction.
+      Below are concrete examples you can directly apply to an online lesson.
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-3 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 1: “Hook → Prompt”</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Start with a surprising statement and a prediction question.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Hook:</b> “Most online learners stop after the first 2 minutes.”<br/>
+          <b>Prompt:</b> “What do you think causes the drop—content, distraction, or low relevance?”
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 2: “Micro-task”</div>
+        <p class="mt-2 text-sm text-slate-700">
+          After a short explanation, add a quick action to keep cognition active.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Task:</b> “Click the best definition of ‘Inquiry Arousal’.”<br/>
+          <b>Feedback:</b> Immediate explanation strengthens confidence too.
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 3: “Signaling”</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Use structure and minimalism so learners know what matters.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Rule:</b> 1 key message per screen.<br/>
+          <b>Signal:</b> Bold the “must-know” line; remove decorative clutter.
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-sm font-bold text-slate-600">Quick Check</div>
+          <div class="text-2xl font-black mt-1">Which design best supports Attention?</div>
+          <p class="mt-2 text-sm text-slate-700">
+            Choose one option. You’ll get instant feedback.
+          </p>
+        </div>
+        <span class="pill px-4 py-2 rounded-full text-sm font-bold">Interactive</span>
+      </div>
+
+      <div class="mt-5 grid md:grid-cols-3 gap-3">
+        <button class="choiceBtn rounded-2xl border border-slate-200 p-4 text-left hover:bg-slate-50" data-correct="false">
+          <div class="font-bold">Option A</div>
+          <div class="text-sm text-slate-700 mt-1">Long paragraph definitions with no questions.</div>
+        </button>
+
+        <button class="choiceBtn rounded-2xl border border-slate-200 p-4 text-left hover:bg-slate-50" data-correct="true">
+          <div class="font-bold">Option B</div>
+          <div class="text-sm text-slate-700 mt-1">Short hook + prediction question + quick click-to-reveal.</div>
+        </button>
+
+        <button class="choiceBtn rounded-2xl border border-slate-200 p-4 text-left hover:bg-slate-50" data-correct="false">
+          <div class="font-bold">Option C</div>
+          <div class="text-sm text-slate-700 mt-1">Decorative animations unrelated to learning goal.</div>
+        </button>
+      </div>
+
+      <div id="qcFeedback" class="mt-4 hidden rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12">
+    <div class="rounded-3xl bg-[var(--brand)] text-white p-8 shadow-soft">
+      <div class="text-2xl font-black">Next: Relevance (R)</div>
+      <p class="mt-2 opacity-90">
+        After gaining attention, learners must see value: “Why should I care?”
+        The Relevance page will show strategies and examples.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="relevance.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-white text-[var(--brand)] font-black hover:opacity-95">
           Go to Relevance →
+        </a>
+        <a href="assessment.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-white/30 font-black hover:bg-white/10">
+          Take Assessment
         </a>
       </div>
     </div>
   </section>
-
 </main>
 
-<footer class="mt-16 border-t bg-white">
-  <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-slate-600">
+<footer class="border-t border-slate-200/60 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
     Attention (A) — ARCS Model | QIM513
   </div>
 </footer>
 
 <script>
-  const buttons = document.querySelectorAll('.ansBtn');
-  const feedback = document.getElementById('feedback');
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  const feedback = document.getElementById('qcFeedback');
+  const buttons = document.querySelectorAll('.choiceBtn');
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('ring-2','ring-blue-600','bg-slate-50'));
-      btn.classList.add('ring-2','ring-blue-600','bg-slate-50');
-      feedback.classList.remove('hidden');
+      buttons.forEach(b => b.classList.remove('ring-2','ring-[var(--brand)]','bg-slate-50'));
+      btn.classList.add('ring-2','ring-[var(--brand)]','bg-slate-50');
 
       const ok = btn.dataset.correct === 'true';
+      feedback.classList.remove('hidden');
+
       if(ok){
-        feedback.innerHTML =
-          "<b>Correct.</b> Option A directly addresses Attention by creating curiosity early and requiring active engagement. " +
-          "This increases the chance that learners stay long enough for other ARCS components to work.";
-      } else {
-        feedback.innerHTML =
-          "<b>Not the best choice.</b> The problem is early disengagement, so the most effective fix is to improve Attention first " +
-          "using a purposeful hook, inquiry questions, and micro-interactions.";
+        feedback.innerHTML = "<b>Correct.</b> Option B supports Attention because it combines a hook (capture), a question (inquiry), and interaction (sustain).";
+      }else{
+        feedback.innerHTML = "<b>Not the best choice.</b> Effective attention is aligned with the learning goal. Try the option that includes a hook + inquiry + interaction.";
       }
     });
   });
 </script>
-
-</body>
-</html>
 
 </body>
 </html>
