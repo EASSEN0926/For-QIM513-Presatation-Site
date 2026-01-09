@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Satisfaction (S) — ARCS Model</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --brand:#0b3b88; --accent:#f2d200; }
+    html{scroll-behavior:smooth;}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
+    .marker{background:linear-gradient(90deg, rgba(242,210,0,0), rgba(242,210,0,1), rgba(242,210,0,0));height:6px;border-radius:999px;}
+    .shadow-soft{ box-shadow: 0 12px 30px rgba(2,6,23,.12); }
+    .glass{ background: rgba(255,255,255,.78); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.35); }
+    .pill{ background: rgba(11,59,136,.08); border: 1px solid rgba(11,59,136,.15); }
+    .divider{background:linear-gradient(90deg, rgba(11,59,136,0), rgba(11,59,136,.3), rgba(11,59,136,0));height:1px;}
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    .tag{ border:1px solid rgba(148,163,184,.35); background: rgba(248,250,252,.8); }
+    .good{ border-color: rgba(34,197,94,.45) !important; background: rgba(34,197,94,.08) !important; }
+    .bad{ border-color: rgba(239,68,68,.45) !important; background: rgba(239,68,68,.08) !important; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <a href="index.html" class="flex flex-col leading-tight">
+      <div class="font-extrabold text-slate-900">ARCS Model</div>
+      <div class="text-xs text-slate-600">Application in e-learning</div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">A</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">R</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">C</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="satisfaction.html">S</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </nav>
+
+    <button id="menuBtn" class="md:hidden px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100">Menu</button>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">Attention (A)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">Relevance (R)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">Confidence (C)</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="satisfaction.html">Satisfaction (S)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4">
+
+  <!-- Hero -->
+  <section class="pt-10 pb-8">
+    <div class="marker w-20 mb-5"></div>
+
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-7">
+        <h1 class="text-4xl md:text-5xl font-black leading-tight">
+          Satisfaction (S): reinforcement that sustains motivation
+        </h1>
+        <p class="mt-5 text-lg text-slate-700">
+          Satisfaction answers: <b>“Was this worth my effort?”</b>
+          In e-learning, satisfaction strongly influences whether learners continue learning in the future.
+          It can be built through meaningful feedback, recognition, application opportunities, and a fair learning experience.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#subcategories" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+            Sub-categories & Strategies
+          </a>
+          <a href="#examples" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            E-learning Examples
+          </a>
+          <a href="#activity" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            Interactive Activity
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick summary card -->
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+          <div class="text-sm font-bold text-slate-700">Key idea</div>
+          <div class="text-2xl font-black mt-2">Satisfaction = reinforcement</div>
+          <p class="mt-3 text-slate-700">
+            Satisfaction is not just “rewards.” It is the experience of meaningful progress, fairness, and real-world value—so learners feel motivated to continue.
+          </p>
+
+          <div class="divider my-6"></div>
+
+          <div class="grid gap-3 text-sm">
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Meaningful feedback</div>
+              <div class="text-slate-700 mt-1">Feedback that helps learners improve—not just a score.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Recognition & outcomes</div>
+              <div class="text-slate-700 mt-1">Badges/certificates + evidence of real skill growth.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Transfer & fairness</div>
+              <div class="text-slate-700 mt-1">Apply learning + consistent evaluation and expectations.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-categories -->
+  <section id="subcategories" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Sub-categories of Satisfaction (Keller)</h2>
+    <p class="mt-3 text-slate-700">
+      Satisfaction can be supported through outcomes learners value and through a fair process. In practice, designers focus on:
+      <b>intrinsic reinforcement</b>, <b>extrinsic rewards/recognition</b>, and <b>equity</b>.
+    </p>
+
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">S1</div>
+        <div class="text-xl font-black mt-2">Intrinsic Reinforcement</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Learners feel satisfied when the learning activity itself feels meaningful and engaging.
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Authentic tasks</li>
+          <li>Immediate usefulness</li>
+          <li>Reflection on progress</li>
+        </ul>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">S2</div>
+        <div class="text-xl font-black mt-2">Extrinsic Rewards</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Recognition can reinforce effort—if it feels connected to real achievement.
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Badges/certificates</li>
+          <li>Positive, specific feedback</li>
+          <li>Visible completion milestones</li>
+        </ul>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">S3</div>
+        <div class="text-xl font-black mt-2">Equity (Fairness)</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Satisfaction increases when learners perceive the process as consistent and fair.
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Consistent criteria</li>
+          <li>Transparent evaluation</li>
+          <li>Equal access to support</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 rounded-3xl bg-[var(--brand)] text-white p-7 shadow-soft">
+      <div class="text-2xl font-black">Design rule of thumb</div>
+      <p class="mt-2 opacity-90">
+        Satisfaction is strongest when learners can <b>see evidence of progress</b> and <b>use the skill in a meaningful context</b>.
+        A badge without real growth feels empty.
+      </p>
+    </div>
+  </section>
+
+  <!-- Examples -->
+  <section id="examples" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">E-learning Examples (how Satisfaction is designed)</h2>
+    <p class="mt-3 text-slate-700">
+      These examples show how to make learners feel that effort produced meaningful outcomes—and that the system is fair.
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-3 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 1: Transfer task</div>
+        <p class="mt-2 text-sm text-slate-700">
+          End with an application activity that mirrors real work.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Transfer:</b> “Design one e-learning screen using ARCS: include a hook, a relevance statement, and feedback.”
+        </div>
+        <div class="mt-4 text-sm text-slate-700">
+          <b>Satisfaction link:</b> Intrinsic reinforcement + future usefulness
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 2: Meaningful feedback</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Use feedback that teaches, not just grades.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Feedback:</b> “Correct—this is Inquiry Arousal because the question creates a curiosity gap. Try adding a prediction step to deepen engagement.”
+        </div>
+        <div class="mt-4 text-sm text-slate-700">
+          <b>Satisfaction link:</b> Reinforcement through progress
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 3: Fairness</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Learners feel satisfied when standards are consistent and support is accessible.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Equity:</b> “Rubric is visible from the start, examples are provided, retries are available, and help resources are offered to everyone.”
+        </div>
+        <div class="mt-4 text-sm text-slate-700">
+          <b>Satisfaction link:</b> Equity
+        </div>
+      </div>
+    </div>
+
+    <!-- Do/Don't -->
+    <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="text-2xl font-black">Do / Don’t (Satisfaction)</div>
+      <div class="mt-5 grid md:grid-cols-2 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <div class="font-black text-[var(--brand)]">Do</div>
+          <ul class="mt-3 text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Provide feedback that explains and guides</li>
+            <li>End with a meaningful application task</li>
+            <li>Use recognition tied to real achievement</li>
+            <li>Keep evaluation transparent and consistent</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <div class="font-black text-red-600">Don’t</div>
+          <ul class="mt-3 text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Only show scores with no explanation</li>
+            <li>Give badges without meaningful practice</li>
+            <li>Change rules or criteria unexpectedly</li>
+            <li>Make application tasks optional or absent</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Activity -->
+  <section id="activity" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Interactive Activity: What increases Satisfaction?</h2>
+    <p class="mt-3 text-slate-700">
+      Choose the design decision that best supports satisfaction in an online lesson.
+      You’ll get instant feedback (which itself is part of Satisfaction design).
+    </p>
+
+    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-sm font-bold text-slate-600">Scenario</div>
+          <div class="text-2xl font-black mt-1">An online module ends after a quiz.</div>
+          <p class="mt-2 text-sm text-slate-700">
+            Which ending design is most likely to make learners feel the lesson was worth the effort?
+          </p>
+        </div>
+        <span class="pill px-4 py-2 rounded-full text-sm font-bold">Interactive</span>
+      </div>
+
+      <div class="mt-5 grid lg:grid-cols-3 gap-3">
+        <button class="choiceBtn rounded-2xl border border-slate-200 p-4 text-left hover:bg-slate-50" data-correct="false">
+          <div class="font-bold">Option A</div>
+          <div class="text-sm text-slate-700 mt-1">Show only the score and end the module immediately.</div>
+        </button>
+
+        <button class="choiceBtn rounded-2xl border border-slate-200 p-4 text-left hover:bg-slate-50" data-correct="true">
+          <div class="font-bold">Option B</div>
+          <div class="text-sm text-slate-700 mt-1">Provide feedback + a short transfer task + recognition for completion.</div>
+        </button>
+
+        <button class="choiceBtn rounded-2xl border border-slate-200 p-4 text-left hover:bg-slate-50" data-correct="false">
+          <div class="font-bold">Option C</div>
+          <div class="text-sm text-slate-700 mt-1">Add unrelated animations and award a badge without practice.</div>
+        </button>
+      </div>
+
+      <div id="activityFeedback" class="mt-4 hidden rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12">
+    <div class="rounded-3xl bg-[var(--brand)] text-white p-8 shadow-soft">
+      <div class="text-2xl font-black">Next: E-learning application (with video demo)</div>
+      <p class="mt-2 opacity-90">
+        Now we bring A/R/C/S together and show how the ARCS model improves engagement and persistence in online learning.
+        This is also where your second YouTube “interactive/gamified learning” video fits best.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="elearning.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-white text-[var(--brand)] font-black hover:opacity-95">
+          Go to E-learning →
+        </a>
+        <a href="assessment.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-white/30 font-black hover:bg-white/10">
+          Take Assessment
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-slate-200/60 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+    Satisfaction (S) — ARCS Model | QIM513
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  // Activity interaction
+  const feedback = document.getElementById('activityFeedback');
+  const buttons = document.querySelectorAll('.choiceBtn');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('ring-2','ring-[var(--brand)]','good','bad','bg-slate-50'));
+      btn.classList.add('ring-2','ring-[var(--brand)]','bg-slate-50');
+
+      const ok = btn.dataset.correct === 'true';
+      feedback.classList.remove('hidden');
+
+      if(ok){
+        btn.classList.add('good');
+        feedback.innerHTML =
+          "<b>Correct.</b> Option B increases satisfaction because it reinforces success with meaningful feedback, " +
+          "adds a transfer task (so learning feels useful), and provides recognition tied to real completion.";
+      }else{
+        btn.classList.add('bad');
+        feedback.innerHTML =
+          "<b>Not the best choice.</b> Satisfaction is strongest when effort leads to meaningful outcomes and fair reinforcement. " +
+          "Try the option that includes feedback + application + recognition.";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
