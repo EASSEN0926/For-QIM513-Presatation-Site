@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confidence (C) — ARCS Model</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --brand:#0b3b88; --accent:#f2d200; }
+    html{scroll-behavior:smooth;}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
+    .marker{background:linear-gradient(90deg, rgba(242,210,0,0), rgba(242,210,0,1), rgba(242,210,0,0));height:6px;border-radius:999px;}
+    .shadow-soft{ box-shadow: 0 12px 30px rgba(2,6,23,.12); }
+    .glass{ background: rgba(255,255,255,.78); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.35); }
+    .pill{ background: rgba(11,59,136,.08); border: 1px solid rgba(11,59,136,.15); }
+    .divider{background:linear-gradient(90deg, rgba(11,59,136,0), rgba(11,59,136,.3), rgba(11,59,136,0));height:1px;}
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    .tag{ border:1px solid rgba(148,163,184,.35); background: rgba(248,250,252,.8); }
+    .ok{ border-color: rgba(34,197,94,.45) !important; background: rgba(34,197,94,.08) !important; }
+    .warn{ border-color: rgba(245,158,11,.45) !important; background: rgba(245,158,11,.10) !important; }
+    .bad{ border-color: rgba(239,68,68,.45) !important; background: rgba(239,68,68,.08) !important; }
+    .bar{ height: 12px; border-radius: 999px; background: rgba(148,163,184,.35); overflow: hidden; }
+    .bar > span{ display:block; height:100%; background: linear-gradient(90deg, rgba(11,59,136,1), rgba(242,210,0,1)); width: 0; transition: width .4s ease; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <a href="index.html" class="flex flex-col leading-tight">
+      <div class="font-extrabold text-slate-900">ARCS Model</div>
+      <div class="text-xs text-slate-600">Application in e-learning</div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">A</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">R</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="confidence.html">C</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">S</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </nav>
+
+    <button id="menuBtn" class="md:hidden px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100">Menu</button>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">Attention (A)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">Relevance (R)</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="confidence.html">Confidence (C)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">Satisfaction (S)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4">
+
+  <!-- Hero -->
+  <section class="pt-10 pb-8">
+    <div class="marker w-20 mb-5"></div>
+
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-7">
+        <h1 class="text-4xl md:text-5xl font-black leading-tight">
+          Confidence (C): “I can succeed.”
+        </h1>
+        <p class="mt-5 text-lg text-slate-700">
+          Confidence is about learners’ belief that success is achievable. In e-learning, confidence is tightly connected to
+          <b>clear expectations</b>, <b>structured progression</b>, <b>support</b>, and <b>feedback</b>.
+          When learners feel lost or overwhelmed, motivation collapses—even if the content is interesting and relevant.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#subcategories" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+            Sub-categories & Strategies
+          </a>
+          <a href="#examples" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            E-learning Examples
+          </a>
+          <a href="#checkup" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            Confidence Checkup Tool
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick summary card -->
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+          <div class="text-sm font-bold text-slate-700">Key idea</div>
+          <div class="text-2xl font-black mt-2">Confidence is designed</div>
+          <p class="mt-3 text-slate-700">
+            Learners build confidence when they know what “success” looks like, get early wins, and receive support that makes difficulty feel manageable.
+          </p>
+
+          <div class="divider my-6"></div>
+
+          <div class="grid gap-3 text-sm">
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Clarity</div>
+              <div class="text-slate-700 mt-1">Clear criteria, examples, and evaluation rules.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Progression</div>
+              <div class="text-slate-700 mt-1">Simple → complex tasks with visible progress.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Support</div>
+              <div class="text-slate-700 mt-1">Scaffolds + feedback + opportunities to retry.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-categories -->
+  <section id="subcategories" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Sub-categories of Confidence (Keller)</h2>
+    <p class="mt-3 text-slate-700">
+      Confidence strategies help learners predict that effort can lead to success. In practice, designers build confidence through:
+      <b>learning requirements</b>, <b>success opportunities</b>, and <b>personal control</b>.
+    </p>
+
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">C1</div>
+        <div class="text-xl font-black mt-2">Learning Requirements</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Learners feel more confident when they understand expectations and evaluation.
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Clear success criteria</li>
+          <li>Examples of strong responses</li>
+          <li>Rubrics or checklists</li>
+        </ul>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">C2</div>
+        <div class="text-xl font-black mt-2">Success Opportunities</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Structure tasks so learners experience early wins and gradual difficulty.
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Progressive difficulty</li>
+          <li>Guided practice before independent work</li>
+          <li>Multiple attempts / retries</li>
+        </ul>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xs font-bold text-slate-600">C3</div>
+        <div class="text-xl font-black mt-2">Personal Control</div>
+        <p class="mt-3 text-slate-700 text-sm">
+          Give learners choices that increase autonomy and reduce helplessness.
+        </p>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Control pacing (pause/rewind)</li>
+          <li>Optional support resources</li>
+          <li>Choose pathway or difficulty level</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 rounded-3xl bg-[var(--brand)] text-white p-7 shadow-soft">
+      <div class="text-2xl font-black">Design rule of thumb</div>
+      <p class="mt-2 opacity-90">
+        Confidence grows when difficulty feels <b>predictable</b> and <b>survivable</b>.
+        If learners don’t know what to do next—or why they failed—motivation drops quickly online.
+      </p>
+    </div>
+  </section>
+
+  <!-- Confidence Checkup Tool -->
+  <section id="checkup" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Confidence Checkup (mini audit tool)</h2>
+    <p class="mt-3 text-slate-700">
+      Use this checklist to evaluate whether an e-learning lesson supports confidence. Click items that are present in your design,
+      then view the confidence score and targeted improvement tips.
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-7 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-sm font-bold text-slate-700">Select what your lesson includes</div>
+
+        <div class="mt-5 grid sm:grid-cols-2 gap-3">
+          <label class="tag rounded-2xl p-4 flex gap-3 cursor-pointer hover:bg-slate-50">
+            <input class="chk mt-1" type="checkbox" data-weight="2">
+            <div>
+              <div class="font-bold">Clear success criteria</div>
+              <div class="text-sm text-slate-600">Rubric, checklist, or “what counts as correct.”</div>
+            </div>
+          </label>
+
+          <label class="tag rounded-2xl p-4 flex gap-3 cursor-pointer hover:bg-slate-50">
+            <input class="chk mt-1" type="checkbox" data-weight="2">
+            <div>
+              <div class="font-bold">Example of a strong answer</div>
+              <div class="text-sm text-slate-600">Model response or worked example.</div>
+            </div>
+          </label>
+
+          <label class="tag rounded-2xl p-4 flex gap-3 cursor-pointer hover:bg-slate-50">
+            <input class="chk mt-1" type="checkbox" data-weight="2">
+            <div>
+              <div class="font-bold">Progressive difficulty</div>
+              <div class="text-sm text-slate-600">Simple → complex with early wins.</div>
+            </div>
+          </label>
+
+          <label class="tag rounded-2xl p-4 flex gap-3 cursor-pointer hover:bg-slate-50">
+            <input class="chk mt-1" type="checkbox" data-weight="2">
+            <div>
+              <div class="font-bold">Guided practice</div>
+              <div class="text-sm text-slate-600">Scaffolds before independent work.</div>
+            </div>
+          </label>
+
+          <label class="tag rounded-2xl p-4 flex gap-3 cursor-pointer hover:bg-slate-50">
+            <input class="chk mt-1" type="checkbox" data-weight="1">
+            <div>
+              <div class="font-bold">Retry / second attempt</div>
+              <div class="text-sm text-slate-600">Multiple attempts reduce fear of failure.</div>
+            </div>
+          </label>
+
+          <label class="tag rounded-2xl p-4 flex gap-3 cursor-pointer hover:bg-slate-50">
+            <input class="chk mt-1" type="checkbox" data-weight="1">
+            <div>
+              <div class="font-bold">Immediate feedback</div>
+              <div class="text-sm text-slate-600">Explain why correct/incorrect.</div>
+            </div>
+          </label>
+
+          <label class="tag rounded-2xl p-4 flex gap-3 cursor-pointer hover:bg-slate-50">
+            <input class="chk mt-1" type="checkbox" data-weight="1">
+            <div>
+              <div class="font-bold">Learner control</div>
+              <div class="text-sm text-slate-600">Pacing, pathways, optional resources.</div>
+            </div>
+          </label>
+
+          <label class="tag rounded-2xl p-4 flex gap-3 cursor-pointer hover:bg-slate-50">
+            <input class="chk mt-1" type="checkbox" data-weight="1">
+            <div>
+              <div class="font-bold">Visible progress</div>
+              <div class="text-sm text-slate-600">Step indicator / progress bar.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <button id="calcBtn" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+            Calculate confidence score
+          </button>
+          <button id="resetBtn" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="text-sm font-bold text-slate-700">Score</div>
+            <div id="scoreNum" class="text-4xl font-black text-[var(--brand)] mt-1">—</div>
+            <p id="scoreLabel" class="mt-2 text-sm text-slate-700">Click “Calculate” to see results.</p>
+          </div>
+          <span id="scoreTag" class="pill px-4 py-2 rounded-full text-sm font-bold">Confidence</span>
+        </div>
+
+        <div class="mt-5 bar"><span id="barFill"></span></div>
+
+        <div id="tips" class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm text-slate-800">
+          Tip suggestions will appear here.
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-slate-200 p-5">
+          <div class="font-bold">Why this tool matters</div>
+          <p class="mt-1 text-sm text-slate-700">
+            A confidence-friendly design reduces dropout risk in e-learning by making learners feel capable and supported.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples -->
+  <section id="examples" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">E-learning Examples (how Confidence is built)</h2>
+    <p class="mt-3 text-slate-700">
+      Below are practical examples showing how confidence support looks in online learning screens and activities.
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-3 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 1: Clear criteria</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Before a quiz or assignment, show “what counts as correct.”
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Criteria:</b> “You are correct if you identify (1) the ARCS component and (2) a matching strategy.”
+        </div>
+        <div class="mt-4 text-sm text-slate-700">
+          <b>Confidence link:</b> Learning Requirements
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 2: Scaffolding</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Provide guided practice before asking learners to perform independently.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Sequence:</b> Worked example → partially guided task → independent task.
+        </div>
+        <div class="mt-4 text-sm text-slate-700">
+          <b>Confidence link:</b> Success Opportunities
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="font-black text-lg">Example 3: Learner control</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Allow learners to choose pace and access optional help resources.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>Control:</b> “Replay video”, “Try again”, “View hint”, “Skip to review”.
+        </div>
+        <div class="mt-4 text-sm text-slate-700">
+          <b>Confidence link:</b> Personal Control
+        </div>
+      </div>
+    </div>
+
+    <!-- Do/Don't -->
+    <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="text-2xl font-black">Do / Don’t (Confidence)</div>
+      <div class="mt-5 grid md:grid-cols-2 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <div class="font-black text-[var(--brand)]">Do</div>
+          <ul class="mt-3 text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Show criteria + examples early</li>
+            <li>Start simple, then increase difficulty</li>
+            <li>Give feedback that explains “why”</li>
+            <li>Offer retries and optional hints</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <div class="font-black text-red-600">Don’t</div>
+          <ul class="mt-3 text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Hide evaluation rules</li>
+            <li>Jump into hard tasks immediately</li>
+            <li>Only show “right/wrong” without explanation</li>
+            <li>Remove learner control in e-learning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12">
+    <div class="rounded-3xl bg-[var(--brand)] text-white p-8 shadow-soft">
+      <div class="text-2xl font-black">Next: Satisfaction (S)</div>
+      <p class="mt-2 opacity-90">
+        After learners believe they can succeed, they need meaningful outcomes and reinforcement.
+        The Satisfaction page covers feedback, recognition, transfer, and fairness.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="satisfaction.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-white text-[var(--brand)] font-black hover:opacity-95">
+          Go to Satisfaction →
+        </a>
+        <a href="assessment.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-white/30 font-black hover:bg-white/10">
+          Take Assessment
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-slate-200/60 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+    Confidence (C) — ARCS Model | QIM513
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  // Confidence Checkup Tool
+  const calcBtn = document.getElementById('calcBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const checks = document.querySelectorAll('.chk');
+  const scoreNum = document.getElementById('scoreNum');
+  const scoreLabel = document.getElementById('scoreLabel');
+  const tips = document.getElementById('tips');
+  const barFill = document.getElementById('barFill');
+  const scoreTag = document.getElementById('scoreTag');
+
+  const MAX = 12; // sum of weights: 2+2+2+2+1+1+1+1 = 12
+
+  function renderTips(score){
+    const missing = [];
+    checks.forEach((c, idx) => {
+      if(!c.checked){
+        const text = c.parentElement.querySelector('.font-bold')?.textContent || "an item";
+        missing.push(text);
+      }
+    });
+
+    if(score >= 10){
+      tips.innerHTML = "<b>Strong confidence support.</b> Your lesson likely feels predictable and achievable. Consider adding a progress indicator and optional challenge tasks to maintain engagement for advanced learners.";
+      return;
+    }
+    if(score >= 7){
+      tips.innerHTML =
+        "<b>Good foundation.</b> Improve by strengthening 1–2 missing elements:<br/>" +
+        "<ul class='list-disc pl-5 mt-2'>" + missing.slice(0,4).map(m => `<li>${m}</li>`).join("") + "</ul>" +
+        "<div class='mt-2'><b>Priority:</b> clarity (criteria + examples) and feedback.</div>";
+      return;
+    }
+    if(score >= 4){
+      tips.innerHTML =
+        "<b>Developing confidence support.</b> Learners may feel unsure in e-learning. Add these first:<br/>" +
+        "<ul class='list-disc pl-5 mt-2'>" + missing.slice(0,5).map(m => `<li>${m}</li>`).join("") + "</ul>" +
+        "<div class='mt-2'><b>Priority:</b> show success criteria + add guided practice + allow retries.</div>";
+      return;
+    }
+    tips.innerHTML =
+      "<b>Low confidence support.</b> Learners may drop out quickly. Start with basics:<br/>" +
+      "<ul class='list-disc pl-5 mt-2'>" +
+      "<li>Clear success criteria (rubric/checklist)</li>" +
+      "<li>Model answer or worked example</li>" +
+      "<li>Progressive difficulty with early wins</li>" +
+      "<li>Immediate feedback with explanations</li>" +
+      "</ul>";
+  }
+
+  function setBadge(score){
+    scoreTag.classList.remove('ok','warn','bad');
+    if(score >= 10){
+      scoreTag.classList.add('ok');
+      scoreTag.textContent = "High confidence support";
+      scoreLabel.textContent = "Learners are likely to feel capable and supported.";
+    }else if(score >= 7){
+      scoreTag.classList.add('warn');
+      scoreTag.textContent = "Moderate confidence support";
+      scoreLabel.textContent = "Good foundation; strengthen missing elements.";
+    }else{
+      scoreTag.classList.add('bad');
+      scoreTag.textContent = "Low confidence support";
+      scoreLabel.textContent = "High risk of confusion or dropout in e-learning.";
+    }
+  }
+
+  calcBtn.addEventListener('click', () => {
+    let score = 0;
+    checks.forEach(c => {
+      if(c.checked) score += Number(c.dataset.weight || 1);
+    });
+
+    scoreNum.textContent = `${score}/${MAX}`;
+    const pct = Math.round((score / MAX) * 100);
+    barFill.style.width = `${pct}%`;
+
+    setBadge(score);
+    renderTips(score);
+
+    // scroll to output area
+    scoreNum.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  resetBtn.addEventListener('click', () => {
+    checks.forEach(c => c.checked = false);
+    scoreNum.textContent = "—";
+    scoreLabel.textContent = "Click “Calculate” to see results.";
+    tips.textContent = "Tip suggestions will appear here.";
+    barFill.style.width = "0%";
+    scoreTag.classList.remove('ok','warn','bad');
+    scoreTag.textContent = "Confidence";
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+
+</body>
+</html>
