@@ -1,721 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ARCS Model and its application in e-learning</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root{
-            --brand:#0b3b88;
-            --accent:#f2d200;
-        }
-        html{scroll-behavior:smooth;}
-        body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
-        .glass{
-            background: rgba(255,255,255,.75);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,.35);
-        }
-        .shadow-soft{ box-shadow: 0 12px 30px rgba(2,6,23,.12); }
-        .kpi{
-            background: linear-gradient(135deg, rgba(11,59,136,.08), rgba(242,210,0,.10));
-            border: 1px solid rgba(148,163,184,.35);
-        }
-        .pill{
-            background: rgba(11,59,136,.08);
-            border: 1px solid rgba(11,59,136,.15);
-        }
-        .divider{
-            background: linear-gradient(90deg, rgba(11,59,136,.0), rgba(11,59,136,.3), rgba(11,59,136,.0));
-            height: 1px;
-        }
-        .marker{
-            background: linear-gradient(90deg, rgba(242,210,0,.0), rgba(242,210,0,1), rgba(242,210,0,.0));
-            height: 6px;
-            border-radius: 999px;
-        }
-        .codebox{
-            background:#0b1220;
-            color:#e2e8f0;
-            border:1px solid rgba(148,163,184,.25);
-        }
-        .callout{
-            background: linear-gradient(135deg, rgba(242,210,0,.18), rgba(242,210,0,.06));
-            border: 1px solid rgba(242,210,0,.35);
-        }
-        /* Simple chart bars */
-        .bar{
-            height: 12px;
-            border-radius: 999px;
-            background: rgba(148,163,184,.35);
-            overflow: hidden;
-        }
-        .bar > span{
-            display:block;
-            height:100%;
-            background: linear-gradient(90deg, rgba(11,59,136,1), rgba(242,210,0,1));
-        }
-
-        /* Responsive video embeds */
-        .embed-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 */
-            overflow: hidden;
-            border-radius: 1rem;
-        }
-        .embed-container iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ARCS Model and its application in e-learning</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --brand:#0b3b88; --accent:#f2d200; }
+    html{scroll-behavior:smooth;}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
+    .marker{background:linear-gradient(90deg, rgba(242,210,0,0), rgba(242,210,0,1), rgba(242,210,0,0));height:6px;border-radius:999px;}
+    .shadow-soft{ box-shadow: 0 12px 30px rgba(2,6,23,.12); }
+    .glass{ background: rgba(255,255,255,.78); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.35); }
+    .pill{ background: rgba(11,59,136,.08); border: 1px solid rgba(11,59,136,.15); }
+    .divider{background:linear-gradient(90deg, rgba(11,59,136,0), rgba(11,59,136,.3), rgba(11,59,136,0));height:1px;}
+    .embed-container{position:relative;width:100%;padding-top:56.25%;overflow:hidden;border-radius:1rem;}
+    .embed-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  </style>
 </head>
-
 <body class="bg-slate-50 text-slate-900">
 
-    <!-- Top Nav -->
-    <header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-            <a href="#home" class="flex items-center gap-3">
-                <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--brand)] text-white font-black">AR</span>
-                <div class="leading-tight">
-                    <div class="font-extrabold">ARCS Model</div>
-                    <div class="text-xs text-slate-600">Application in e-learning</div>
+<header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <!-- ✅ Logo removed: clean brand -->
+    <a href="index.html" class="flex flex-col leading-tight">
+      <div class="font-extrabold text-slate-900">ARCS Model</div>
+      <div class="text-xs text-slate-600">Application in e-learning</div>
+    </a>
+
+    <!-- ✅ Multi-page navigation -->
+    <nav class="hidden md:flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#objectives">Objectives</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+
+      <!-- Pages (you can add these later; links won’t break if you add them later) -->
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">A</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">R</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">C</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">S</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+
+      <!-- ✅ Assessment as a real feature page -->
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white hover:opacity-95" href="assessment.html">Assessment</a>
+
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </nav>
+
+    <button id="menuBtn" class="md:hidden px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100">
+      Menu
+    </button>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#objectives">Objectives</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">Attention (A)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">Relevance (R)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">Confidence (C)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">Satisfaction (S)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4">
+
+  <!-- HERO -->
+  <section id="home" class="pt-10 pb-10">
+    <div class="grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-7">
+        <div class="marker w-24 mb-5"></div>
+        <h1 class="text-4xl md:text-5xl font-black leading-tight">
+          ARCS Model and its application in <span class="text-[var(--brand)]">e-learning</span>
+        </h1>
+        <p class="mt-5 text-lg text-slate-700">
+          ARCS (Keller) is a motivational design framework that helps you <b>capture attention</b>,
+          build <b>relevance</b>, support <b>confidence</b>, and reinforce <b>satisfaction</b>—especially in online learning.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#theory" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+            Start with the Theory
+          </a>
+          <a href="assessment.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            Take the Interactive Quiz
+          </a>
+        </div>
+      </div>
+
+      <!-- ✅ Replace “plain text display” with a true feature hub -->
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
+          <div class="p-6">
+            <div class="text-sm font-bold text-slate-700">Feature Hub</div>
+            <div class="text-2xl font-black mt-2">What you can do on this site</div>
+            <div class="divider my-5"></div>
+
+            <div class="grid gap-4">
+              <a href="attention.html" class="group rounded-2xl border border-slate-200 p-4 hover:bg-slate-50">
+                <div class="flex items-start gap-3">
+                  <div class="h-9 w-9 rounded-2xl bg-[var(--accent)]/25 flex items-center justify-center font-black text-[var(--brand)]">A</div>
+                  <div>
+                    <div class="font-bold group-hover:text-[var(--brand)]">Attention Toolkit</div>
+                    <div class="text-sm text-slate-600">Hooks, inquiry prompts, variability, interaction.</div>
+                  </div>
                 </div>
+              </a>
+
+              <a href="relevance.html" class="group rounded-2xl border border-slate-200 p-4 hover:bg-slate-50">
+                <div class="flex items-start gap-3">
+                  <div class="h-9 w-9 rounded-2xl bg-[var(--accent)]/25 flex items-center justify-center font-black text-[var(--brand)]">R</div>
+                  <div>
+                    <div class="font-bold group-hover:text-[var(--brand)]">Relevance Builder</div>
+                    <div class="text-sm text-slate-600">Goal orientation, motive matching, familiarity, future use.</div>
+                  </div>
+                </div>
+              </a>
+
+              <a href="confidence.html" class="group rounded-2xl border border-slate-200 p-4 hover:bg-slate-50">
+                <div class="flex items-start gap-3">
+                  <div class="h-9 w-9 rounded-2xl bg-[var(--accent)]/25 flex items-center justify-center font-black text-[var(--brand)]">C</div>
+                  <div>
+                    <div class="font-bold group-hover:text-[var(--brand)]">Confidence Support</div>
+                    <div class="text-sm text-slate-600">Clear criteria, scaffolds, feedback, learner control.</div>
+                  </div>
+                </div>
+              </a>
+
+              <a href="satisfaction.html" class="group rounded-2xl border border-slate-200 p-4 hover:bg-slate-50">
+                <div class="flex items-start gap-3">
+                  <div class="h-9 w-9 rounded-2xl bg-[var(--accent)]/25 flex items-center justify-center font-black text-[var(--brand)]">S</div>
+                  <div>
+                    <div class="font-bold group-hover:text-[var(--brand)]">Satisfaction Reinforcement</div>
+                    <div class="text-sm text-slate-600">Meaningful outcomes, transfer, recognition, fairness.</div>
+                  </div>
+                </div>
+              </a>
+
+              <a href="assessment.html" class="group rounded-2xl border border-slate-200 p-4 hover:bg-slate-50">
+                <div class="flex items-start gap-3">
+                  <div class="h-9 w-9 rounded-2xl bg-[var(--brand)] text-white flex items-center justify-center font-black">✓</div>
+                  <div>
+                    <div class="font-bold group-hover:text-[var(--brand)]">Interactive Assessment</div>
+                    <div class="text-sm text-slate-600">10-question quiz with instant scoring + feedback.</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-[var(--brand)] text-white p-4">
+            <div class="text-sm font-semibold">Design tip</div>
+            <div class="text-sm opacity-90">Make motivation intentional: design it into the experience.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJECTIVES -->
+  <section id="objectives" class="py-10">
+    <div class="marker w-20 mb-5"></div>
+    <h2 class="text-3xl font-black">Learning Objectives</h2>
+    <p class="mt-3 text-slate-700">By the end of this lesson, you should be able to:</p>
+
+    <div class="mt-6 grid md:grid-cols-2 gap-4">
+      <div class="glass rounded-3xl p-6 shadow-soft">
+        <div class="font-bold">1) Explain the ARCS Model</div>
+        <p class="text-sm text-slate-700 mt-2">Describe the four components and why they matter for motivation.</p>
+      </div>
+      <div class="glass rounded-3xl p-6 shadow-soft">
+        <div class="font-bold">2) Identify key strategies</div>
+        <p class="text-sm text-slate-700 mt-2">Recognize sub-categories and practical tactics for A, R, C, and S.</p>
+      </div>
+      <div class="glass rounded-3xl p-6 shadow-soft">
+        <div class="font-bold">3) Apply ARCS to e-learning</div>
+        <p class="text-sm text-slate-700 mt-2">Propose design decisions that improve engagement and persistence online.</p>
+      </div>
+      <div class="glass rounded-3xl p-6 shadow-soft">
+        <div class="font-bold">4) Evaluate design quality</div>
+        <p class="text-sm text-slate-700 mt-2">Use ARCS as a checklist to critique or improve an online lesson.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEORY -->
+  <section id="theory" class="py-10">
+    <div class="marker w-20 mb-5"></div>
+    <h2 class="text-3xl font-black">Introduction to the ARCS Model</h2>
+    <p class="mt-3 text-slate-700">
+      ARCS (Keller) is a motivational design system. Below are key visuals and an explainer video to help you grasp the whole model quickly.
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-12 gap-6 items-start">
+      <div class="lg:col-span-7">
+        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+          <h3 class="text-xl font-bold">ARCS Cycle Diagram</h3>
+          <p class="mt-2 text-sm text-slate-700">
+            Use this diagram to see how A/R/C/S work together rather than as separate ideas.
+          </p>
+          <div class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
+            <img src="arcs-cycle-diagram.png" alt="ARCS cycle diagram" class="w-full h-auto rounded-2xl" loading="lazy">
+          </div>
+
+          <div class="mt-8">
+            <div class="flex items-center justify-between gap-4 mb-3">
+              <h3 class="text-lg font-bold">ARCS animated explainer</h3>
+              <span class="text-xs font-semibold px-2 py-1 rounded-full bg-slate-100 text-slate-700">YouTube</span>
+            </div>
+            <div class="embed-container shadow-soft ring-1 ring-slate-200">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/tYu90ZK2WUA"
+                title="ARCS Model animated explainer"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="mt-8 rounded-3xl border border-slate-200 p-5">
+            <div class="font-bold">Next step</div>
+            <p class="text-sm text-slate-700 mt-1">
+              Continue into the component pages for deeper examples:
+              <a class="text-[var(--brand)] font-semibold hover:underline" href="attention.html">A</a>,
+              <a class="text-[var(--brand)] font-semibold hover:underline" href="relevance.html">R</a>,
+              <a class="text-[var(--brand)] font-semibold hover:underline" href="confidence.html">C</a>,
+              <a class="text-[var(--brand)] font-semibold hover:underline" href="satisfaction.html">S</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+          <h3 class="text-xl font-bold">Author: John M. Keller</h3>
+          <p class="mt-3 text-slate-700">
+            Keller created ARCS to help designers systematically plan motivation into instruction.
+          </p>
+          <div class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
+            <img src="john-m-keller-portrait.jpg" alt="John M. Keller portrait" class="w-full h-auto rounded-2xl" loading="lazy">
+          </div>
+
+          <div class="divider my-6"></div>
+
+          <h4 class="text-lg font-bold">Full framework infographic</h4>
+          <p class="mt-2 text-sm text-slate-700">
+            This helps you see sub-categories at a glance (useful when you write analysis).
+          </p>
+          <div class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
+            <img src="arcs-full-framework-infographic.png" alt="ARCS full framework infographic" class="w-full h-auto rounded-2xl" loading="lazy">
+          </div>
+
+          <div class="mt-6">
+            <a href="assessment.html" class="inline-flex w-full items-center justify-center px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+              Take the Assessment Quiz
             </a>
-
-            <nav class="hidden md:flex items-center gap-2 text-sm">
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#objectives">Objectives</a>
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#theory">Theory</a>
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#application">Application</a>
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#assessment">Assessment</a>
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#resources">Resources</a>
-            </nav>
-
-            <button id="menuBtn" class="md:hidden px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100">
-                Menu
-            </button>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
-            <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#objectives">Objectives</a>
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#theory">Theory</a>
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#application">Application</a>
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#assessment">Assessment</a>
-                <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="#resources">Resources</a>
-            </div>
-        </div>
-    </header>
+  <!-- CTA -->
+  <section class="py-12">
+    <div class="rounded-3xl bg-[var(--brand)] text-white p-8 shadow-soft">
+      <div class="text-2xl font-black">Ready to test your understanding?</div>
+      <p class="mt-2 opacity-90">
+        The assessment page includes a 10-question interactive quiz with instant scoring and feedback.
+      </p>
+      <div class="mt-5">
+        <a href="assessment.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-white text-[var(--brand)] font-black hover:opacity-95">
+          Go to Assessment →
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Main -->
-    <main class="max-w-6xl mx-auto px-4">
+</main>
 
-        <!-- HERO -->
-        <section id="home" class="pt-10 pb-12">
-            <div class="grid lg:grid-cols-12 gap-8 items-center">
-                <div class="lg:col-span-7">
-                    <div class="marker w-24 mb-5"></div>
-                    <h1 class="text-4xl md:text-5xl font-black leading-tight">
-                        Title 2: <span class="text-[var(--brand)]">ARCS Model</span> and its application in <span class="text-[var(--brand)]">e-learning</span>
-                    </h1>
-                    <p class="mt-5 text-lg text-slate-700">
-                        The ARCS Model (Keller) is a motivational design framework that helps instructional designers
-                        capture attention, create relevance, build confidence, and reinforce satisfaction—especially
-                        important in online learning where motivation is fragile.
-                    </p>
+<footer class="border-t border-slate-200/60 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+    Built for QIM513 — ARCS Model and e-learning application.
+  </div>
+</footer>
 
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="#theory" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
-                            Explore the Model
-                        </a>
-                        <a href="#application" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
-                            See e-learning Applications
-                        </a>
-                    </div>
-
-                    <div class="mt-8 grid sm:grid-cols-3 gap-3">
-                        <div class="kpi rounded-2xl p-4">
-                            <div class="text-xs text-slate-600">Framework</div>
-                            <div class="font-extrabold text-lg">Motivational Design</div>
-                        </div>
-                        <div class="kpi rounded-2xl p-4">
-                            <div class="text-xs text-slate-600">Core Components</div>
-                            <div class="font-extrabold text-lg">A • R • C • S</div>
-                        </div>
-                        <div class="kpi rounded-2xl p-4">
-                            <div class="text-xs text-slate-600">Context</div>
-                            <div class="font-extrabold text-lg">E-learning</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5">
-                    <div class="rounded-3xl overflow-hidden shadow-soft border border-slate-200 bg-white">
-                        <div class="p-6">
-                            <div class="text-sm font-bold text-slate-700">Quick Overview</div>
-                            <div class="text-2xl font-black mt-2">What does ARCS help you do?</div>
-                            <div class="divider my-5"></div>
-
-                            <div class="grid gap-4">
-                                <div class="flex items-start gap-3">
-                                    <div class="mt-1 h-8 w-8 rounded-2xl bg-[var(--accent)]/30 flex items-center justify-center font-black text-[var(--brand)]">A</div>
-                                    <div>
-                                        <div class="font-bold">Attention</div>
-                                        <div class="text-sm text-slate-600">Capture and sustain interest</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="mt-1 h-8 w-8 rounded-2xl bg-[var(--accent)]/30 flex items-center justify-center font-black text-[var(--brand)]">R</div>
-                                    <div>
-                                        <div class="font-bold">Relevance</div>
-                                        <div class="text-sm text-slate-600">Connect to goals and experiences</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="mt-1 h-8 w-8 rounded-2xl bg-[var(--accent)]/30 flex items-center justify-center font-black text-[var(--brand)]">C</div>
-                                    <div>
-                                        <div class="font-bold">Confidence</div>
-                                        <div class="text-sm text-slate-600">Support belief in success</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="mt-1 h-8 w-8 rounded-2xl bg-[var(--accent)]/30 flex items-center justify-center font-black text-[var(--brand)]">S</div>
-                                    <div>
-                                        <div class="font-bold">Satisfaction</div>
-                                        <div class="text-sm text-slate-600">Reinforce learning through outcomes</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-[var(--brand)] text-white p-4">
-                            <div class="text-sm font-semibold">Design tip</div>
-                            <div class="text-sm opacity-90">Motivation should be intentionally designed, not assumed.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- OBJECTIVES -->
-        <section id="objectives" class="py-12">
-            <div class="marker w-20 mb-5"></div>
-            <h2 class="text-3xl font-black">Learning Objectives</h2>
-            <p class="mt-3 text-slate-700">
-                By the end of this lesson, you should be able to:
-            </p>
-
-            <div class="mt-6 grid md:grid-cols-2 gap-4">
-                <div class="glass rounded-3xl p-6 shadow-soft">
-                    <div class="font-bold">1) Explain the ARCS Model</div>
-                    <p class="text-sm text-slate-700 mt-2">
-                        Describe the four components and why they matter for motivation.
-                    </p>
-                </div>
-                <div class="glass rounded-3xl p-6 shadow-soft">
-                    <div class="font-bold">2) Identify key strategies</div>
-                    <p class="text-sm text-slate-700 mt-2">
-                        Recognize sub-categories and practical tactics for A, R, C, and S.
-                    </p>
-                </div>
-                <div class="glass rounded-3xl p-6 shadow-soft">
-                    <div class="font-bold">3) Apply ARCS to e-learning</div>
-                    <p class="text-sm text-slate-700 mt-2">
-                        Propose design decisions that improve engagement and persistence online.
-                    </p>
-                </div>
-                <div class="glass rounded-3xl p-6 shadow-soft">
-                    <div class="font-bold">4) Evaluate design quality</div>
-                    <p class="text-sm text-slate-700 mt-2">
-                        Use ARCS as a checklist to critique or improve an online lesson.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- THEORY -->
-        <section id="theory" class="py-12">
-            <div class="marker w-20 mb-5"></div>
-            <h2 class="text-3xl font-black">Introduction to the ARCS Model</h2>
-
-            <div class="mt-6 grid lg:grid-cols-12 gap-6 items-start">
-                <div class="lg:col-span-7">
-                    <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                        <h3 class="text-xl font-bold text-slate-900">What is ARCS?</h3>
-                        <p class="mt-3 text-slate-700">
-                            The ARCS Model, developed by John M. Keller, is a framework for motivational design.
-                            It helps designers plan instruction that <span class="font-semibold">captures attention</span>,
-                            builds <span class="font-semibold">relevance</span>, supports <span class="font-semibold">confidence</span>,
-                            and reinforces <span class="font-semibold">satisfaction</span>.
-                        </p>
-
-                        <div class="mt-6 grid sm:grid-cols-2 gap-4">
-                            <div class="rounded-2xl border border-slate-200 p-4">
-                                <div class="text-sm font-black text-[var(--brand)]">Attention (A)</div>
-                                <div class="text-sm text-slate-700 mt-1">Get learners to notice and stay engaged.</div>
-                            </div>
-                            <div class="rounded-2xl border border-slate-200 p-4">
-                                <div class="text-sm font-black text-[var(--brand)]">Relevance (R)</div>
-                                <div class="text-sm text-slate-700 mt-1">Connect content to goals and experiences.</div>
-                            </div>
-                            <div class="rounded-2xl border border-slate-200 p-4">
-                                <div class="text-sm font-black text-[var(--brand)]">Confidence (C)</div>
-                                <div class="text-sm text-slate-700 mt-1">Help learners believe they can succeed.</div>
-                            </div>
-                            <div class="rounded-2xl border border-slate-200 p-4">
-                                <div class="text-sm font-black text-[var(--brand)]">Satisfaction (S)</div>
-                                <div class="text-sm text-slate-700 mt-1">Reinforce effort with meaningful outcomes.</div>
-                            </div>
-                        </div>
-
-                        <div class="callout rounded-3xl p-5 mt-6">
-                            <div class="font-bold text-slate-900">Why it matters for e-learning</div>
-                            <p class="text-sm text-slate-700 mt-1">
-                                Online learners often study independently and face distractions. ARCS helps designers
-                                build motivation into the lesson structure, not just rely on learner willpower.
-                            </p>
-                        </div>
-
-                        <figure class="mt-7 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50">
-                            <div class="p-4 border-b border-slate-200">
-                                <div class="font-bold text-slate-900">ARCS Cycle Diagram</div>
-                                <div class="text-sm text-slate-600">A simple visual for how ARCS works as an integrated system.</div>
-                            </div>
-                            <div class="p-4">
-                                <img src="arcs-cycle-diagram.png" alt="ARCS cycle diagram" class="w-full h-auto rounded-2xl" loading="lazy">
-                            </div>
-                        </figure>
-
-                        <section class="mt-8">
-                            <div class="flex items-center justify-between gap-4 mb-3">
-                                <h3 class="text-lg font-bold text-slate-900">ARCS Model (3–5 min animated explainer)</h3>
-                                <span class="text-xs font-semibold px-2 py-1 rounded-full bg-slate-100 text-slate-700">YouTube</span>
-                            </div>
-                            <p class="text-slate-700 text-sm mb-4">
-                                This short animation provides a clear, beginner-friendly overview of the ARCS Model and how the four components work together in motivational design.
-                            </p>
-                            <div class="embed-container shadow-sm ring-1 ring-slate-200">
-                                <iframe
-                                    src="https://www.youtube-nocookie.com/embed/tYu90ZK2WUA"
-                                    title="ARCS Model animated explainer"
-                                    loading="lazy"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </section>
-
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5">
-                    <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                        <h3 class="text-xl font-bold text-slate-900">Author: John M. Keller</h3>
-                        <p class="mt-3 text-slate-700">
-                            Keller developed the ARCS Model to help instructional designers create motivational instruction by
-                            systematically addressing key learner needs.
-                        </p>
-
-                        <figure class="mt-6 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50">
-                            <div class="p-4 border-b border-slate-200">
-                                <div class="font-bold text-slate-900">Photo</div>
-                                <div class="text-sm text-slate-600">Place in your site to increase credibility and context.</div>
-                            </div>
-                            <div class="p-4">
-                                <img src="john-m-keller-portrait.jpg" alt="John M. Keller portrait" class="w-full h-auto rounded-2xl" loading="lazy">
-                            </div>
-                        </figure>
-
-                        <div class="divider my-6"></div>
-
-                        <h4 class="text-lg font-bold text-slate-900">Full ARCS Framework (Infographic)</h4>
-                        <p class="mt-2 text-sm text-slate-700">
-                            A single infographic can communicate the overall structure (including sub-categories) at a glance.
-                        </p>
-
-                        <figure class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50">
-                            <div class="p-4">
-                                <img src="arcs-full-framework-infographic.png" alt="ARCS full framework infographic" class="w-full h-auto rounded-2xl" loading="lazy">
-                            </div>
-                        </figure>
-
-                        <div class="mt-6 rounded-3xl border border-slate-200 p-5">
-                            <div class="font-bold text-slate-900">How to use this section</div>
-                            <ul class="mt-2 text-sm text-slate-700 list-disc list-inside space-y-1">
-                                <li>Read the short definitions for A/R/C/S.</li>
-                                <li>Review sub-categories for design ideas.</li>
-                                <li>Move to “Application” to see how ARCS fits online learning.</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- Component deep dives -->
-            <div class="mt-10 grid lg:grid-cols-2 gap-6">
-                <!-- Attention -->
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <div class="flex items-center justify-between gap-4">
-                        <h3 class="text-xl font-black text-[var(--brand)]">A — Attention</h3>
-                        <span class="pill text-xs px-3 py-1 rounded-full font-semibold">Gain + Sustain</span>
-                    </div>
-                    <p class="mt-3 text-slate-700">
-                        Attention is the entry point of motivation—learners must notice the learning task and remain mentally engaged long enough
-                        to process and practice.
-                    </p>
-                    <div class="mt-4 grid sm:grid-cols-2 gap-3">
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Perceptual Arousal</div>
-                            <div class="text-sm text-slate-700 mt-1">Novelty, surprise, visuals, storytelling.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Inquiry Arousal</div>
-                            <div class="text-sm text-slate-700 mt-1">Questions, predictions, puzzles, curiosity gaps.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Variability</div>
-                            <div class="text-sm text-slate-700 mt-1">Mix formats: micro-videos, diagrams, quick tasks.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Design Tip</div>
-                            <div class="text-sm text-slate-700 mt-1">Use attention to highlight what matters—not distractions.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Relevance -->
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <div class="flex items-center justify-between gap-4">
-                        <h3 class="text-xl font-black text-[var(--brand)]">R — Relevance</h3>
-                        <span class="pill text-xs px-3 py-1 rounded-full font-semibold">Value + Purpose</span>
-                    </div>
-                    <p class="mt-3 text-slate-700">
-                        Relevance answers “Why should I care?” It connects content to learners’ goals, motives, and experiences so they persist.
-                    </p>
-                    <div class="mt-4 grid sm:grid-cols-2 gap-3">
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Goal Orientation</div>
-                            <div class="text-sm text-slate-700 mt-1">Clear learning goals and outcomes that matter.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Motive Matching</div>
-                            <div class="text-sm text-slate-700 mt-1">Align activities with learner interests and needs.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Familiarity</div>
-                            <div class="text-sm text-slate-700 mt-1">Use examples connected to prior knowledge or context.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Future Usefulness</div>
-                            <div class="text-sm text-slate-700 mt-1">Show real-life, academic, or workplace application.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Confidence -->
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <div class="flex items-center justify-between gap-4">
-                        <h3 class="text-xl font-black text-[var(--brand)]">C — Confidence</h3>
-                        <span class="pill text-xs px-3 py-1 rounded-full font-semibold">Expectations + Success</span>
-                    </div>
-                    <p class="mt-3 text-slate-700">
-                        Confidence supports the belief that success is achievable. It increases persistence when tasks feel challenging.
-                    </p>
-                    <div class="mt-4 grid sm:grid-cols-2 gap-3">
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Learning Requirements</div>
-                            <div class="text-sm text-slate-700 mt-1">Clear criteria and performance standards.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Success Opportunities</div>
-                            <div class="text-sm text-slate-700 mt-1">Progressive difficulty and early wins.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Personal Control</div>
-                            <div class="text-sm text-slate-700 mt-1">Pacing choices, retry options, supportive scaffolds.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Timely Feedback</div>
-                            <div class="text-sm text-slate-700 mt-1">Feedback helps learners monitor and correct errors.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Satisfaction -->
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <div class="flex items-center justify-between gap-4">
-                        <h3 class="text-xl font-black text-[var(--brand)]">S — Satisfaction</h3>
-                        <span class="pill text-xs px-3 py-1 rounded-full font-semibold">Reinforcement</span>
-                    </div>
-                    <p class="mt-3 text-slate-700">
-                        Satisfaction reinforces motivation when learners feel effort leads to meaningful outcomes—feedback, achievement, and transfer.
-                    </p>
-                    <div class="mt-4 grid sm:grid-cols-2 gap-3">
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Intrinsic Reinforcement</div>
-                            <div class="text-sm text-slate-700 mt-1">Activities are satisfying when engaging and purposeful.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Extrinsic Rewards</div>
-                            <div class="text-sm text-slate-700 mt-1">Badges, certificates, recognition (used carefully).</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Fairness</div>
-                            <div class="text-sm text-slate-700 mt-1">Consistent evaluation builds trust and satisfaction.</div>
-                        </div>
-                        <div class="rounded-2xl border border-slate-200 p-4">
-                            <div class="font-bold">Transfer</div>
-                            <div class="text-sm text-slate-700 mt-1">Opportunities to apply skills beyond the course.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- APPLICATION -->
-        <section id="application" class="py-12">
-            <div class="marker w-20 mb-5"></div>
-            <h2 class="text-3xl font-black">Application of ARCS Model in e-learning</h2>
-            <p class="mt-3 text-slate-700">
-                E-learning environments often involve self-paced study, limited instructor presence, and constant distractions.
-                ARCS helps designers create a structure that supports engagement and persistence.
-            </p>
-
-            <div class="mt-8 grid md:grid-cols-2 gap-8 mb-16">
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <h3 class="text-xl font-bold text-slate-900">E-learning Context: Why motivation is fragile online</h3>
-                    <ul class="mt-4 text-slate-700 list-disc list-inside space-y-2">
-                        <li><span class="font-semibold">Independent learning:</span> learners manage time, pace, and study strategies.</li>
-                        <li><span class="font-semibold">Distractions:</span> notifications, multitasking, short attention windows.</li>
-                        <li><span class="font-semibold">Reduced social presence:</span> less immediate encouragement and feedback.</li>
-                        <li><span class="font-semibold">Drop-off risk:</span> motivation can fade quickly if the design is unclear.</li>
-                    </ul>
-                </div>
-
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <h3 class="text-xl font-bold text-slate-900">What ARCS helps you design</h3>
-                    <p class="mt-3 text-slate-700">
-                        ARCS is practical because each component maps to concrete design decisions you can make in an online lesson.
-                    </p>
-
-                    <div class="mt-5 space-y-4">
-                        <div>
-                            <div class="flex items-center justify-between text-sm font-semibold">
-                                <span>Attention support</span><span class="text-slate-600">Hook + interaction</span>
-                            </div>
-                            <div class="bar mt-2"><span style="width:82%"></span></div>
-                        </div>
-                        <div>
-                            <div class="flex items-center justify-between text-sm font-semibold">
-                                <span>Relevance support</span><span class="text-slate-600">Goals + usefulness</span>
-                            </div>
-                            <div class="bar mt-2"><span style="width:74%"></span></div>
-                        </div>
-                        <div>
-                            <div class="flex items-center justify-between text-sm font-semibold">
-                                <span>Confidence support</span><span class="text-slate-600">Scaffolds + feedback</span>
-                            </div>
-                            <div class="bar mt-2"><span style="width:78%"></span></div>
-                        </div>
-                        <div>
-                            <div class="flex items-center justify-between text-sm font-semibold">
-                                <span>Satisfaction support</span><span class="text-slate-600">Achievement + transfer</span>
-                            </div>
-                            <div class="bar mt-2"><span style="width:70%"></span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <section class="mb-16">
-                <div class="flex items-center justify-between gap-4 mb-3">
-                    <h2 class="text-2xl font-bold text-slate-900">Interactive e-learning demo (Gamified learning)</h2>
-                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-slate-100 text-slate-700">YouTube</span>
-                </div>
-                <p class="text-slate-700 mb-6">
-                    This example video demonstrates how game-like interactions (points, challenges, rapid feedback) can sustain attention, build confidence through progressive difficulty, and increase satisfaction through achievement.
-                </p>
-                <div class="embed-container shadow-sm ring-1 ring-slate-200">
-                    <iframe
-                        src="https://www.youtube-nocookie.com/embed/1CZtIIy7tRU"
-                        title="Gamified learning interactive demonstration"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-            </section>
-
-            <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                <h3 class="text-2xl font-bold text-slate-900">ARCS Strategy Map (What to design)</h3>
-                <p class="mt-3 text-slate-700">
-                    Below is a simple “design map” showing how each ARCS component can be translated into e-learning features.
-                </p>
-
-                <div class="mt-6 grid lg:grid-cols-4 gap-4">
-                    <div class="rounded-2xl border border-slate-200 p-4">
-                        <div class="text-sm font-black text-[var(--brand)]">A — Attention</div>
-                        <ul class="mt-2 text-sm text-slate-700 list-disc list-inside space-y-1">
-                            <li>Opening hook</li>
-                            <li>Questions & predictions</li>
-                            <li>Varied media</li>
-                            <li>Short interactions</li>
-                        </ul>
-                    </div>
-
-                    <div class="rounded-2xl border border-slate-200 p-4">
-                        <div class="text-sm font-black text-[var(--brand)]">R — Relevance</div>
-                        <ul class="mt-2 text-sm text-slate-700 list-disc list-inside space-y-1">
-                            <li>Clear outcomes</li>
-                            <li>Real examples</li>
-                            <li>Workplace application</li>
-                            <li>Personalized options</li>
-                        </ul>
-                    </div>
-
-                    <div class="rounded-2xl border border-slate-200 p-4">
-                        <div class="text-sm font-black text-[var(--brand)]">C — Confidence</div>
-                        <ul class="mt-2 text-sm text-slate-700 list-disc list-inside space-y-1">
-                            <li>Rubrics & criteria</li>
-                            <li>Scaffolding</li>
-                            <li>Progress indicators</li>
-                            <li>Timely feedback</li>
-                        </ul>
-                    </div>
-
-                    <div class="rounded-2xl border border-slate-200 p-4">
-                        <div class="text-sm font-black text-[var(--brand)]">S — Satisfaction</div>
-                        <ul class="mt-2 text-sm text-slate-700 list-disc list-inside space-y-1">
-                            <li>Recognition</li>
-                            <li>Meaningful tasks</li>
-                            <li>Transfer activities</li>
-                            <li>Fair evaluation</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="mt-8 callout rounded-3xl p-6">
-                    <div class="font-bold text-slate-900">Design principle</div>
-                    <p class="mt-2 text-sm text-slate-700">
-                        In e-learning, motivation tends to “drop” when learners feel lost, bored, or unsure they can succeed.
-                        ARCS helps reduce those risk points by shaping learner experience from start to finish.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ASSESSMENT -->
-        <section id="assessment" class="py-12">
-            <div class="marker w-20 mb-5"></div>
-            <h2 class="text-3xl font-black">Assessment (10 Questions)</h2>
-            <p class="mt-3 text-slate-700">
-                You can implement these questions in Google Forms / Kahoot / Genially. Below is a ready-to-copy question set.
-            </p>
-
-            <div class="mt-6 rounded-3xl codebox p-6 overflow-auto">
-<pre class="text-sm leading-relaxed whitespace-pre-wrap">
-1) In the ARCS Model, what does “A” stand for?
-A. Achievement  B. Attention  C. Ability  D. Alignment
-
-2) Why is attention considered the entry point of motivation in ARCS?
-A. It increases grades  B. It happens automatically  C. Learners must notice and engage first  D. It replaces relevance
-
-3) Which is an example of Perceptual Arousal (Attention)?
-A. Rubrics  B. Surprise/novel visual  C. Workplace case study  D. Certificate
-
-4) Which strategy best supports Inquiry Arousal?
-A. Provide a prediction question  B. Give a final exam  C. Show a certificate  D. Remove all visuals
-
-5) In ARCS, relevance mainly answers which learner question?
-A. “How long is this?”  B. “Why should I care?”  C. “Is this graded?”  D. “Who is the instructor?”
-
-6) Which is an example of Future Usefulness (Relevance)?
-A. A joke at the start  B. A real-life application scenario  C. A random animation  D. A timer countdown
-
-7) Confidence is most supported when learners have:
-A. No feedback  B. Clear expectations and achievable challenges  C. Only hard tasks  D. Only long readings
-
-8) Which is an example of “Personal Control” (Confidence)?
-A. Locked pacing  B. Choice of learning pathway  C. Hidden criteria  D. No retries
-
-9) Satisfaction increases when learners:
-A. Receive meaningful feedback and can apply learning  B. Are distracted  C. Never practice  D. Skip tasks
-
-10) Which statement best represents ARCS as a system?
-A. Only attention matters online
-B. Relevance is optional if content is hard
-C. Motivation must be intentionally designed across A, R, C, and S
-D. Satisfaction is unrelated to persistence
-</pre>
-            </div>
-
-            <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                <div class="font-bold">Implementation tip</div>
-                <p class="text-sm text-slate-700 mt-2">
-                    If you use Google Forms, you can turn on “Quiz” mode and set answer keys + feedback for each option.
-                    That feedback itself can support <span class="font-semibold">Confidence</span> and <span class="font-semibold">Satisfaction</span>.
-                </p>
-            </div>
-        </section>
-
-        <!-- RESOURCES -->
-        <section id="resources" class="py-12 mb-16">
-            <div class="marker w-20 mb-5"></div>
-            <h2 class="text-3xl font-black">Resources</h2>
-            <div class="mt-6 grid md:grid-cols-2 gap-4">
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <div class="font-bold">Keller, J. M. (1987)</div>
-                    <div class="text-sm text-slate-700 mt-2">
-                        Development and use of the ARCS model of motivational design. <em>Performance & Instruction</em>.
-                    </div>
-                </div>
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <div class="font-bold">Keller, J. M. (2010)</div>
-                    <div class="text-sm text-slate-700 mt-2">
-                        <em>Motivational Design for Learning and Performance: The ARCS Model Approach</em>. Springer.
-                    </div>
-                </div>
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <div class="font-bold">Keller & Suzuki (1988)</div>
-                    <div class="text-sm text-slate-700 mt-2">
-                        Use of the ARCS motivation model in instructional design.
-                    </div>
-                </div>
-                <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-                    <div class="font-bold">QIM513 Course Materials</div>
-                    <div class="text-sm text-slate-700 mt-2">
-                        Additional insights and examples used in this lesson.
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-8 rounded-3xl bg-[var(--brand)] text-white p-8 shadow-soft">
-                <div class="text-2xl font-black">Thank you!</div>
-                <p class="mt-2 opacity-90">
-                    The ARCS Model helps designers move from “hoping learners are motivated” to actually building motivation into the learning experience.
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="border-t border-slate-200/60 bg-white">
-        <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
-            Built for QIM513 — ARCS Model and e-learning application.
-        </div>
-    </footer>
-
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        menuBtn?.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
-
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+</script>
 </body>
 </html>
