@@ -18,6 +18,9 @@
     .ratio iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
     .good{ border-color: rgba(34,197,94,.45) !important; background: rgba(34,197,94,.08) !important; }
     .bad{ border-color: rgba(239,68,68,.45) !important; background: rgba(239,68,68,.08) !important; }
+
+    /* ✅ NEW: image utilities (no layout break) */
+    .img-card{ border: 1px solid rgba(226,232,240,.9); background: rgba(248,250,252,.65); }
   </style>
 </head>
 
@@ -91,6 +94,22 @@
             Gamified Demo
           </a>
         </div>
+
+        <!-- ✅ NEW: Hero image strip (uses your existing assets; no code removal) -->
+        <div class="mt-8 grid sm:grid-cols-3 gap-3">
+          <div class="rounded-3xl overflow-hidden shadow-soft img-card p-3">
+            <img src="arcs-cycle-diagram.png" alt="ARCS cycle diagram" class="w-full h-auto rounded-2xl" loading="lazy">
+            <div class="mt-2 text-xs text-slate-600">ARCS as a system</div>
+          </div>
+          <div class="rounded-3xl overflow-hidden shadow-soft img-card p-3">
+            <img src="arcs-full-framework-infographic.png" alt="ARCS full framework infographic" class="w-full h-auto rounded-2xl" loading="lazy">
+            <div class="mt-2 text-xs text-slate-600">Sub-categories overview</div>
+          </div>
+          <div class="rounded-3xl overflow-hidden shadow-soft img-card p-3">
+            <img src="certificate-online-cours.jpg" alt="Certificate / completion recognition" class="w-full h-auto rounded-2xl" loading="lazy">
+            <div class="mt-2 text-xs text-slate-600">Satisfaction & recognition</div>
+          </div>
+        </div>
       </div>
 
       <div class="lg:col-span-5">
@@ -118,6 +137,18 @@
               <div class="text-slate-700 mt-1">Practice choosing the best ARCS interventions.</div>
             </div>
           </div>
+
+          <!-- ✅ NEW: Keller portrait cameo (optional but nice) -->
+          <div class="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-4">
+            <div class="flex items-center gap-4">
+              <img src="john-m-keller-portrait.jpg" alt="John M. Keller portrait" class="h-16 w-16 rounded-2xl object-cover border border-slate-200" loading="lazy">
+              <div>
+                <div class="text-sm font-bold text-slate-700">Origin</div>
+                <div class="text-sm text-slate-600">ARCS was developed by John M. Keller to plan motivation systematically.</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -132,6 +163,25 @@
       Compared with face-to-face learning, online learning often reduces supervision and real-time interaction.
       That makes motivation a design requirement, not a “nice-to-have.”
     </p>
+
+    <!-- ✅ NEW: section header image (lightweight) -->
+    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
+      <div class="p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="text-sm font-bold text-slate-700">Visual reminder</div>
+            <div class="text-2xl font-black mt-1">Design motivation on purpose</div>
+            <p class="mt-2 text-sm text-slate-700">
+              If learners drop early, you usually need Attention + Confidence supports (hook, interactions, clear steps, feedback).
+            </p>
+          </div>
+          <span class="pill px-4 py-2 rounded-full text-sm font-bold">ARCS</span>
+        </div>
+        <div class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
+          <img src="arcs-cycle-diagram.png" alt="ARCS cycle diagram (motivation system)" class="w-full h-auto rounded-2xl" loading="lazy">
+        </div>
+      </div>
+    </div>
 
     <div class="mt-6 grid lg:grid-cols-3 gap-4">
       <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
@@ -207,6 +257,15 @@
           allowfullscreen></iframe>
       </div>
 
+      <!-- ✅ NEW: infographic below video -->
+      <div class="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-4">
+        <div class="text-sm font-bold text-slate-700">At-a-glance</div>
+        <div class="text-sm text-slate-600 mt-1">Use this as a quick recap after the video.</div>
+        <div class="mt-3 rounded-3xl overflow-hidden border border-slate-200 bg-white p-3">
+          <img src="arcs-full-framework-infographic.png" alt="ARCS full framework infographic recap" class="w-full h-auto rounded-2xl" loading="lazy">
+        </div>
+      </div>
+
       <div class="mt-5 grid lg:grid-cols-3 gap-4">
         <div class="rounded-2xl border border-slate-200 p-4">
           <div class="font-bold">How to use it</div>
@@ -238,6 +297,18 @@
       Use this blueprint to convert the ARCS model into concrete decisions. This is the “application” core: it shows
       exactly how a designer can implement ARCS in an online lesson.
     </p>
+
+    <!-- ✅ NEW: blueprint header image -->
+    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
+      <div class="p-6">
+        <div class="text-sm font-bold text-slate-700">Blueprint visual</div>
+        <div class="text-2xl font-black mt-1">A → R → C → S (flow)</div>
+        <div class="divider my-4"></div>
+        <div class="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
+          <img src="arcs-cycle-diagram.png" alt="ARCS cycle diagram as blueprint flow" class="w-full h-auto rounded-2xl" loading="lazy">
+        </div>
+      </div>
+    </div>
 
     <div class="mt-6 grid lg:grid-cols-2 gap-4">
       <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
@@ -294,6 +365,11 @@
         <div class="mt-4 pill rounded-2xl p-4 text-sm text-slate-700">
           <b>Example:</b> “Design one ARCS improvement for a lesson you personally took online.”
         </div>
+
+        <!-- ✅ NEW: satisfaction visual inside step 4 -->
+        <div class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
+          <img src="certificate-online-cours.jpg" alt="Recognition example for Satisfaction" class="w-full h-auto rounded-2xl" loading="lazy">
+        </div>
       </div>
     </div>
 
@@ -347,6 +423,33 @@
           title="Gamified Learning / Interactive Teaching Demo"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
+      </div>
+
+      <!-- ✅ NEW: quick “spot the ARCS” visuals -->
+      <div class="mt-6 grid lg:grid-cols-3 gap-4">
+        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+          <div class="text-sm font-bold text-slate-700">A/R/C/S refresher</div>
+          <div class="text-xs text-slate-600 mt-1">Use these visuals while discussing the demo.</div>
+          <div class="mt-3 rounded-2xl overflow-hidden border border-slate-200 bg-white p-2">
+            <img src="arcs-full-framework-infographic.png" alt="ARCS mapping reference for the demo video" class="w-full h-auto rounded-xl" loading="lazy">
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+          <div class="text-sm font-bold text-slate-700">System view</div>
+          <div class="text-xs text-slate-600 mt-1">Helps explain why “gamified” often works.</div>
+          <div class="mt-3 rounded-2xl overflow-hidden border border-slate-200 bg-white p-2">
+            <img src="arcs-cycle-diagram.png" alt="ARCS cycle diagram reference" class="w-full h-auto rounded-xl" loading="lazy">
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+          <div class="text-sm font-bold text-slate-700">Recognition</div>
+          <div class="text-xs text-slate-600 mt-1">Satisfaction increases when progress is visible.</div>
+          <div class="mt-3 rounded-2xl overflow-hidden border border-slate-200 bg-white p-2">
+            <img src="certificate-online-cours.jpg" alt="Recognition visual linked to Satisfaction" class="w-full h-auto rounded-xl" loading="lazy">
+          </div>
+        </div>
       </div>
 
       <div class="mt-5 grid lg:grid-cols-2 gap-4">
