@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-learning Application — ARCS Model</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --brand:#0b3b88; --accent:#f2d200; }
+    html{scroll-behavior:smooth;}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
+    .marker{background:linear-gradient(90deg, rgba(242,210,0,0), rgba(242,210,0,1), rgba(242,210,0,0));height:6px;border-radius:999px;}
+    .shadow-soft{ box-shadow: 0 12px 30px rgba(2,6,23,.12); }
+    .pill{ background: rgba(11,59,136,.08); border: 1px solid rgba(11,59,136,.15); }
+    .divider{background:linear-gradient(90deg, rgba(11,59,136,0), rgba(11,59,136,.3), rgba(11,59,136,0));height:1px;}
+    .tag{ border:1px solid rgba(148,163,184,.35); background: rgba(248,250,252,.8); }
+    .ratio{ position:relative; width:100%; padding-top:56.25%; border-radius: 1.5rem; overflow:hidden; }
+    .ratio iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .good{ border-color: rgba(34,197,94,.45) !important; background: rgba(34,197,94,.08) !important; }
+    .bad{ border-color: rgba(239,68,68,.45) !important; background: rgba(239,68,68,.08) !important; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/70 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    <a href="index.html" class="flex flex-col leading-tight">
+      <div class="font-extrabold text-slate-900">ARCS Model</div>
+      <div class="text-xs text-slate-600">Application in e-learning</div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">A</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">R</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">C</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">S</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </nav>
+
+    <button id="menuBtn" class="md:hidden px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-100">Menu</button>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">Attention (A)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">Relevance (R)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">Confidence (C)</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">Satisfaction (S)</a>
+      <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="elearning.html">E-learning</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4">
+
+  <!-- Hero -->
+  <section class="pt-10 pb-8">
+    <div class="marker w-20 mb-5"></div>
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-7">
+        <h1 class="text-4xl md:text-5xl font-black leading-tight">
+          Applying ARCS in E-learning
+        </h1>
+        <p class="mt-5 text-lg text-slate-700">
+          E-learning increases flexibility, but it also increases dropout risk: learners study alone, face more distractions,
+          and receive less immediate support. The ARCS Model helps designers intentionally build motivation so learners start,
+          persist, and finish.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#challenges" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+            E-learning Challenges
+          </a>
+          <a href="#video1" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            ARCS Video
+          </a>
+          <a href="#blueprint" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            ARCS Blueprint
+          </a>
+          <a href="#video2" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+            Gamified Demo
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+          <div class="text-sm font-bold text-slate-700">What this page provides</div>
+          <div class="text-2xl font-black mt-2">A complete application view</div>
+          <p class="mt-3 text-slate-700">
+            Instead of discussing A/R/C/S separately, we connect them as a system and show how ARCS can be implemented
+            in real e-learning lessons.
+          </p>
+
+          <div class="divider my-6"></div>
+
+          <div class="grid gap-3 text-sm">
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Challenges → Strategies</div>
+              <div class="text-slate-700 mt-1">Map common online problems to ARCS solutions.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Blueprint</div>
+              <div class="text-slate-700 mt-1">Step-by-step recipe to design an ARCS lesson.</div>
+            </div>
+            <div class="pill rounded-2xl p-4">
+              <div class="font-bold">Mini activity</div>
+              <div class="text-slate-700 mt-1">Practice choosing the best ARCS interventions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Challenges -->
+  <section id="challenges" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Why motivation is fragile in e-learning</h2>
+    <p class="mt-3 text-slate-700">
+      Compared with face-to-face learning, online learning often reduces supervision and real-time interaction.
+      That makes motivation a design requirement, not a “nice-to-have.”
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-3 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xl font-black">Distraction & multitasking</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Notifications, competing tabs, and fragmented study time reduce sustained attention.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>ARCS response:</b> Attention strategies (hook + inquiry + interaction + signaling).
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xl font-black">Low perceived value</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Learners disengage when they do not see how content connects to goals or real situations.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>ARCS response:</b> Relevance strategies (goal orientation, familiarity, future usefulness).
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xl font-black">Low self-efficacy</div>
+        <p class="mt-2 text-sm text-slate-700">
+          When tasks feel confusing or too hard, learners stop—especially without immediate help.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>ARCS response:</b> Confidence strategies (clear criteria, scaffolds, feedback, retries).
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 grid lg:grid-cols-2 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xl font-black">Weak reinforcement</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Without meaningful outcomes (transfer, progress evidence), learners feel learning was not worth the effort.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>ARCS response:</b> Satisfaction strategies (feedback, recognition, transfer tasks, fairness).
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-xl font-black">Isolation & low social presence</div>
+        <p class="mt-2 text-sm text-slate-700">
+          Learners may feel alone, which reduces persistence and emotional engagement.
+        </p>
+        <div class="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+          <b>ARCS response:</b> Blend ARCS with discussion prompts, peer examples, and supportive messaging.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video 1: ARCS animated explanation -->
+  <section id="video1" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Video: ARCS model overview (animated explanation)</h2>
+    <p class="mt-3 text-slate-700">
+      This short video provides a clear overview of the ARCS framework. It’s helpful for quickly reinforcing the meaning of
+      Attention, Relevance, Confidence, and Satisfaction before applying them to e-learning design.
+    </p>
+
+    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="ratio">
+        <!-- ARCS model video: https://youtu.be/tYu90ZK2WUA -->
+        <iframe
+          src="https://www.youtube.com/embed/tYu90ZK2WUA"
+          title="ARCS Model Animated Explanation"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="mt-5 grid lg:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-4">
+          <div class="font-bold">How to use it</div>
+          <p class="mt-1 text-sm text-slate-700">
+            Embed as a “primer” before learners start the module, or as a recap before assessment.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-4">
+          <div class="font-bold">What to ask learners</div>
+          <p class="mt-1 text-sm text-slate-700">
+            “Which ARCS component do you struggle with most in online learning—and why?”
+          </p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-4">
+          <div class="font-bold">Design takeaway</div>
+          <p class="mt-1 text-sm text-slate-700">
+            Treat ARCS as a system: capture attention, create value, support success, reinforce outcomes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blueprint -->
+  <section id="blueprint" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">ARCS Blueprint: a step-by-step design recipe</h2>
+    <p class="mt-3 text-slate-700">
+      Use this blueprint to convert the ARCS model into concrete decisions. This is the “application” core: it shows
+      exactly how a designer can implement ARCS in an online lesson.
+    </p>
+
+    <div class="mt-6 grid lg:grid-cols-2 gap-4">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-sm font-bold text-slate-600">Step 1 — Attention</div>
+        <div class="text-2xl font-black mt-1">Capture, sustain, and focus</div>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Open with a hook tied to the learning goal (problem, question, surprising fact).</li>
+          <li>Add inquiry prompts: prediction questions or “choose what you’d do.”</li>
+          <li>Plan a rhythm: micro-content + micro-interaction every 2–4 minutes.</li>
+          <li>Use signaling: bold key ideas, reduce clutter, one main idea per screen.</li>
+        </ul>
+        <div class="mt-4 pill rounded-2xl p-4 text-sm text-slate-700">
+          <b>Example:</b> “Before we define ARCS, predict which component fails most often in online learning.”
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-sm font-bold text-slate-600">Step 2 — Relevance</div>
+        <div class="text-2xl font-black mt-1">Make learners say “this matters”</div>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>State outcome in learner language: “You will be able to…”</li>
+          <li>Connect to prior experience with familiarity bridges.</li>
+          <li>Provide role-based cases (student / employee / specific field).</li>
+          <li>Show future usefulness: how the skill transfers to real tasks.</li>
+        </ul>
+        <div class="mt-4 pill rounded-2xl p-4 text-sm text-slate-700">
+          <b>Example:</b> “You can use ARCS to redesign a boring module so learners persist and finish.”
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-sm font-bold text-slate-600">Step 3 — Confidence</div>
+        <div class="text-2xl font-black mt-1">Make success predictable</div>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Show clear criteria + an example of a strong response.</li>
+          <li>Progress from simple tasks to complex tasks (early wins).</li>
+          <li>Provide scaffolds: hints, worked examples, guided practice.</li>
+          <li>Use retries + feedback that explains “why.”</li>
+        </ul>
+        <div class="mt-4 pill rounded-2xl p-4 text-sm text-slate-700">
+          <b>Example:</b> “Try again” plus feedback reduces anxiety and strengthens persistence.
+        </div>
+      </div>
+
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+        <div class="text-sm font-bold text-slate-600">Step 4 — Satisfaction</div>
+        <div class="text-2xl font-black mt-1">Reinforce effort with outcomes</div>
+        <ul class="mt-4 text-sm text-slate-700 list-disc pl-5 space-y-1">
+          <li>Provide meaningful feedback (not only scores).</li>
+          <li>End with a transfer task that proves usefulness.</li>
+          <li>Offer recognition tied to real completion (badge/certificate).</li>
+          <li>Keep rules fair and consistent (equity).</li>
+        </ul>
+        <div class="mt-4 pill rounded-2xl p-4 text-sm text-slate-700">
+          <b>Example:</b> “Design one ARCS improvement for a lesson you personally took online.”
+        </div>
+      </div>
+    </div>
+
+    <!-- Mini decision activity -->
+    <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-sm font-bold text-slate-600">Mini Practice</div>
+          <div class="text-2xl font-black mt-1">Pick the best ARCS fix</div>
+          <p class="mt-2 text-sm text-slate-700">
+            Situation: learners stop after the first minute of a video lecture. Which intervention fits best?
+          </p>
+        </div>
+        <span class="pill px-4 py-2 rounded-full text-sm font-bold">Interactive</span>
+      </div>
+
+      <div class="mt-5 grid lg:grid-cols-3 gap-3">
+        <button class="fixBtn rounded-2xl border border-slate-200 p-4 text-left hover:bg-slate-50" data-correct="true">
+          <div class="font-bold">Option A</div>
+          <div class="text-sm text-slate-700 mt-1">Add a hook + prediction question + quick interaction every 2–3 minutes.</div>
+        </button>
+        <button class="fixBtn rounded-2xl border border-slate-200 p-4 text-left hover:bg-slate-50" data-correct="false">
+          <div class="font-bold">Option B</div>
+          <div class="text-sm text-slate-700 mt-1">Make the video longer so learners feel it is “serious.”</div>
+        </button>
+        <button class="fixBtn rounded-2xl border border-slate-200 p-4 text-left hover:bg-slate-50" data-correct="false">
+          <div class="font-bold">Option C</div>
+          <div class="text-sm text-slate-700 mt-1">Hide criteria and grading rules to reduce pressure.</div>
+        </button>
+      </div>
+
+      <div id="fixFeedback" class="mt-4 hidden rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800"></div>
+    </div>
+  </section>
+
+  <!-- Video 2: Gamified / interactive teaching demo -->
+  <section id="video2" class="py-10">
+    <div class="marker w-16 mb-5"></div>
+    <h2 class="text-3xl font-black">Video: Gamified learning demo (interactive teaching)</h2>
+    <p class="mt-3 text-slate-700">
+      This video demonstrates interactive/gamified learning. It is a strong example of how ARCS strategies can be implemented:
+      interaction supports <b>Attention</b>, meaningful goals support <b>Relevance</b>, feedback and progressive tasks support <b>Confidence</b>,
+      and achievement/recognition supports <b>Satisfaction</b>.
+    </p>
+
+    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="ratio">
+        <!-- Gamified learning video: https://www.youtube.com/watch?v=1CZtIIy7tRU -->
+        <iframe
+          src="https://www.youtube.com/embed/1CZtIIy7tRU"
+          title="Gamified Learning / Interactive Teaching Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="mt-5 grid lg:grid-cols-2 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <div class="font-bold">ARCS mapping guide</div>
+          <ul class="mt-2 text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li><b>A:</b> interaction, novelty, inquiry moments</li>
+            <li><b>R:</b> meaningful goal and context for actions</li>
+            <li><b>C:</b> progressive difficulty, feedback, retries</li>
+            <li><b>S:</b> accomplishment, recognition, visible progress</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <div class="font-bold">How to use this in your lesson</div>
+          <p class="mt-2 text-sm text-slate-700">
+            After showing the video, ask learners to identify at least one ARCS strategy they observed and explain
+            how it influences motivation in an e-learning environment.
+          </p>
+          <div class="mt-3 pill rounded-2xl p-4 text-sm text-slate-700">
+            <b>Prompt:</b> “Which ARCS component is most visible in the demo—and what design element supports it?”
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12">
+    <div class="rounded-3xl bg-[var(--brand)] text-white p-8 shadow-soft">
+      <div class="text-2xl font-black">Next: Assessment (10 questions)</div>
+      <p class="mt-2 opacity-90">
+        Use the assessment to check understanding. You can implement it as Google Forms or keep it on your website.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="assessment.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-white text-[var(--brand)] font-black hover:opacity-95">
+          Go to Assessment →
+        </a>
+        <a href="resources.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-white/30 font-black hover:bg-white/10">
+          View Resources
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-slate-200/60 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+    E-learning Application — ARCS Model | QIM513
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  // Mini practice: ARCS fix
+  const fixFeedback = document.getElementById('fixFeedback');
+  const fixBtns = document.querySelectorAll('.fixBtn');
+
+  fixBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      fixBtns.forEach(b => b.classList.remove('ring-2','ring-[var(--brand)]','good','bad','bg-slate-50'));
+      btn.classList.add('ring-2','ring-[var(--brand)]','bg-slate-50');
+
+      const ok = btn.dataset.correct === 'true';
+      fixFeedback.classList.remove('hidden');
+
+      if(ok){
+        btn.classList.add('good');
+        fixFeedback.innerHTML =
+          "<b>Correct.</b> Option A directly addresses e-learning dropout by strengthening <b>Attention</b> (hook + inquiry + interaction). " +
+          "It also supports later ARCS components because learners stay long enough to see relevance, build confidence, and gain satisfaction.";
+      }else{
+        btn.classList.add('bad');
+        fixFeedback.innerHTML =
+          "<b>Not the best choice.</b> The problem is early disengagement, so the most direct fix is <b>Attention design</b> (hook, inquiry, interaction, signaling).";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
