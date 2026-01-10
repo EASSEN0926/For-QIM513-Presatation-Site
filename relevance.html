@@ -32,7 +32,9 @@
 
     <nav class="hidden md:flex items-center gap-2 text-sm">
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
-      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <!-- ✅ Consistent with your updated index page -->
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#introduction">Introduction</a>
+
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">A</a>
       <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="relevance.html">R</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">C</a>
@@ -48,7 +50,8 @@
   <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
     <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
-      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#introduction">Introduction</a>
+
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">Attention (A)</a>
       <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="relevance.html">Relevance (R)</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">Confidence (C)</a>
@@ -62,23 +65,32 @@
 
 <main class="max-w-6xl mx-auto px-4">
 
-  <!-- Hero -->
-  <section class="pt-10 pb-8">
+  <!-- ✅ REQUIRED: R (Relevance) -->
+  <section class="pt-10 pb-8" id="relevance">
     <div class="marker w-20 mb-5"></div>
 
     <div class="grid lg:grid-cols-12 gap-8 items-start">
       <div class="lg:col-span-7">
-        <h1 class="text-4xl md:text-5xl font-black leading-tight">
-          Relevance (R): “Why should I care?”
-        </h1>
-        <p class="mt-5 text-lg text-slate-700">
+
+        <div class="flex items-center justify-between gap-3 flex-wrap">
+          <h1 class="text-4xl md:text-5xl font-black leading-tight">
+            R (Relevance)
+          </h1>
+          <span class="tag text-xs font-bold px-3 py-1 rounded-full text-slate-700">Required section</span>
+        </div>
+
+        <p class="mt-3 text-xl font-black text-slate-900">
+          “Why should I care?”
+        </p>
+
+        <p class="mt-4 text-lg text-slate-700">
           Even if learners are attentive, motivation drops when they do not see value.
           <b>Relevance</b> connects learning to goals, identity, experience, and future use—especially important in e-learning where learners study independently.
         </p>
 
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#subcategories" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
-            Sub-categories & Strategies
+            Sub-categories of Relevance
           </a>
           <a href="#examples" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
             E-learning Examples
@@ -88,7 +100,7 @@
           </a>
         </div>
 
-        <!-- ✅ Image appears ONLY ONCE in the whole page -->
+        <!-- Image (kept as-is) -->
         <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
           <div class="p-5">
             <div class="text-sm font-bold text-slate-700">Visual cue</div>
@@ -102,7 +114,7 @@
         </div>
       </div>
 
-      <!-- Quick summary card -->
+      <!-- Quick summary card (kept as-is) -->
       <div class="lg:col-span-5">
         <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
           <div class="text-sm font-bold text-slate-700">Key idea</div>
@@ -136,7 +148,6 @@
             </div>
           </div>
 
-          <!-- ✅ NEW: “Make relevance visible” checklist (no image) -->
           <div class="mt-6 rounded-3xl border border-slate-200 p-5">
             <div class="font-black">Make relevance visible</div>
             <p class="mt-2 text-sm text-slate-700">
@@ -154,18 +165,21 @@
     </div>
   </section>
 
-  <!-- Sub-categories -->
+  <!-- ✅ REQUIRED: Sub-categories of Relevance -->
   <section id="subcategories" class="py-10">
     <div class="marker w-16 mb-5"></div>
-    <h2 class="text-3xl font-black">Sub-categories of Relevance (Keller)</h2>
+
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-3xl font-black">Sub-categories of Relevance (Keller)</h2>
+      <span class="tag text-xs font-bold px-3 py-1 rounded-full text-slate-700">Required section</span>
+    </div>
+
     <p class="mt-3 text-slate-700">
       Relevance strategies help learners connect new content to personal goals and meaningful outcomes.
       In practice, relevance often becomes stronger when designers guide learners through:
       <b>goals</b> → <b>personal connection</b> → <b>future use</b>.
     </p>
 
-    <!-- ✅ Removed the duplicate-image “visual reference card”
-         Replaced with a richer “relevance pathway” block (no image) -->
     <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
       <div class="flex items-start justify-between gap-4">
         <div>
