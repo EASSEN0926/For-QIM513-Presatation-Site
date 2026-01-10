@@ -88,7 +88,7 @@
           </a>
         </div>
 
-        <!-- ✅ NEW: Hero visual (uses your existing image) -->
+        <!-- ✅ Image appears ONLY ONCE in the whole page -->
         <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
           <div class="p-5">
             <div class="text-sm font-bold text-slate-700">Visual cue</div>
@@ -129,13 +129,26 @@
             </div>
           </div>
 
-          <!-- ✅ NEW: Small “why this matters” block -->
           <div class="mt-6 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
             <div class="text-xs font-bold text-slate-600">Why it matters online</div>
             <div class="text-sm text-slate-700 mt-1">
               In e-learning, learners often ask “Is this worth my time?” Relevance answers that question repeatedly.
             </div>
           </div>
+
+          <!-- ✅ NEW: “Make relevance visible” checklist (no image) -->
+          <div class="mt-6 rounded-3xl border border-slate-200 p-5">
+            <div class="font-black">Make relevance visible</div>
+            <p class="mt-2 text-sm text-slate-700">
+              Use short “relevance moments” throughout a lesson, not only at the beginning.
+            </p>
+            <div class="mt-3 grid gap-2 text-sm text-slate-700">
+              <div class="flex gap-2"><span class="font-black text-[var(--brand)]">1.</span><span><b>Start:</b> “Here’s what you’ll do and why it matters.”</span></div>
+              <div class="flex gap-2"><span class="font-black text-[var(--brand)]">2.</span><span><b>During:</b> “This connects to ___ you already know.”</span></div>
+              <div class="flex gap-2"><span class="font-black text-[var(--brand)]">3.</span><span><b>End:</b> “You can apply this in ___ situation.”</span></div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -151,22 +164,42 @@
       <b>goals</b> → <b>personal connection</b> → <b>future use</b>.
     </p>
 
-    <!-- ✅ NEW: Visual reference card before R1–R4 grid -->
-    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
-      <div class="p-6">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <div class="text-sm font-bold text-slate-700">Quick framing</div>
-            <div class="text-2xl font-black mt-1">Make relevance visible, not assumed</div>
-            <p class="mt-2 text-slate-700 text-sm">
-              A simple “why this matters” callout can dramatically improve persistence in online learning.
-              Use goal language, familiar examples, and a future-use scenario.
-            </p>
-          </div>
-          <span class="pill px-4 py-2 rounded-full text-sm font-bold">R</span>
+    <!-- ✅ Removed the duplicate-image “visual reference card”
+         Replaced with a richer “relevance pathway” block (no image) -->
+    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-sm font-bold text-slate-700">Relevance pathway</div>
+          <div class="text-2xl font-black mt-1">Goal → Connection → Use</div>
+          <p class="mt-2 text-sm text-slate-700">
+            Many learners do not feel relevance immediately. A strong e-learning lesson “walks” learners through
+            these steps—so relevance becomes clearer over time.
+          </p>
         </div>
-        <div class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
-          <img src="learning-goals-career.jpg" alt="Relevance visual: goals and career" class="w-full h-auto rounded-2xl" loading="lazy">
+        <span class="pill px-4 py-2 rounded-full text-sm font-bold">R</span>
+      </div>
+
+      <div class="mt-5 grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+          <div class="text-xs font-bold text-slate-600">Step 1</div>
+          <div class="font-black text-lg mt-1">Goal Orientation</div>
+          <p class="text-sm text-slate-700 mt-2">
+            Make the purpose concrete: what learners will do, and what “good performance” looks like.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+          <div class="text-xs font-bold text-slate-600">Step 2</div>
+          <div class="font-black text-lg mt-1">Personal Connection</div>
+          <p class="text-sm text-slate-700 mt-2">
+            Use familiar examples and motive matching so learners feel “this is about me / my role.”
+          </p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+          <div class="text-xs font-bold text-slate-600">Step 3</div>
+          <div class="font-black text-lg mt-1">Future Usefulness</div>
+          <p class="text-sm text-slate-700 mt-2">
+            Show transfer: how the skill will be used later in assignments, work, or real decisions.
+          </p>
         </div>
       </div>
     </div>
@@ -228,19 +261,19 @@
     <div class="mt-8 rounded-3xl bg-[var(--brand)] text-white p-7 shadow-soft">
       <div class="text-2xl font-black">Design rule of thumb</div>
       <p class="mt-2 opacity-90">
-        Don’t just state relevance once. Reinforce it repeatedly:
+        Don’t state relevance once. Reinforce it repeatedly:
         at the start (purpose), during learning (connections), and near the end (application).
       </p>
     </div>
   </section>
 
-  <!-- Relevance Builder (mini tool) -->
+  <!-- Relevance Builder -->
   <section id="builder" class="py-10">
     <div class="marker w-16 mb-5"></div>
     <h2 class="text-3xl font-black">Relevance Builder (quick tool)</h2>
     <p class="mt-3 text-slate-700">
       Use this tool to generate a relevance statement for any lesson topic.
-      (This makes the website feel like an instructional application rather than a text page.)
+      This makes the site feel like an instructional application—not just a reading page.
     </p>
 
     <div class="mt-6 grid lg:grid-cols-12 gap-6">
@@ -369,7 +402,6 @@
       </div>
     </div>
 
-    <!-- Do/Don't -->
     <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
       <div class="text-2xl font-black">Do / Don’t (Relevance)</div>
       <div class="mt-5 grid md:grid-cols-2 gap-4">
