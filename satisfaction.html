@@ -42,7 +42,9 @@
 
     <nav class="hidden md:flex items-center gap-2 text-sm">
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
-      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <!-- ✅ CONSISTENT: Theory -> Introduction -->
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#introduction">Introduction</a>
+
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">A</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">R</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">C</a>
@@ -58,7 +60,8 @@
   <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
     <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
-      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#introduction">Introduction</a>
+
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">Attention (A)</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">Relevance (R)</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">Confidence (C)</a>
@@ -72,16 +75,25 @@
 
 <main class="max-w-6xl mx-auto px-4">
 
-  <!-- Hero -->
-  <section class="pt-10 pb-8">
+  <!-- ✅ REQUIRED: S (Satisfaction) -->
+  <section class="pt-10 pb-8" id="satisfaction">
     <div class="marker w-20 mb-5"></div>
 
     <div class="grid lg:grid-cols-12 gap-8 items-start">
       <div class="lg:col-span-7">
-        <h1 class="text-4xl md:text-5xl font-black leading-tight">
-          Satisfaction (S): reinforcement that sustains motivation
-        </h1>
-        <p class="mt-5 text-lg text-slate-700">
+
+        <div class="flex items-center justify-between gap-3 flex-wrap">
+          <h1 class="text-4xl md:text-5xl font-black leading-tight">
+            S (Satisfaction)
+          </h1>
+          <span class="tag text-xs font-bold px-3 py-1 rounded-full text-slate-700">Required section</span>
+        </div>
+
+        <p class="mt-3 text-xl font-black text-slate-900">
+          Reinforcement that sustains motivation
+        </p>
+
+        <p class="mt-4 text-lg text-slate-700">
           Satisfaction answers: <b>“Was this worth my effort?”</b>
           In e-learning, satisfaction strongly influences whether learners continue learning in the future.
           It can be built through meaningful feedback, recognition, application opportunities, and a fair learning experience.
@@ -146,7 +158,6 @@
             </div>
           </div>
 
-          <!-- ✅ NEW: Satisfaction formula (no image) -->
           <div class="mt-6 rounded-3xl border border-slate-200 p-5">
             <div class="font-black">Satisfaction formula</div>
             <p class="mt-2 text-sm text-slate-700">
@@ -166,16 +177,20 @@
     </div>
   </section>
 
-  <!-- Sub-categories -->
+  <!-- ✅ REQUIRED: Sub-categories of Satisfaction -->
   <section id="subcategories" class="py-10">
     <div class="marker w-16 mb-5"></div>
-    <h2 class="text-3xl font-black">Sub-categories of Satisfaction (Keller)</h2>
+
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-3xl font-black">Sub-categories of Satisfaction (Keller)</h2>
+      <span class="tag text-xs font-bold px-3 py-1 rounded-full text-slate-700">Required section</span>
+    </div>
+
     <p class="mt-3 text-slate-700">
       Satisfaction can be supported through outcomes learners value and through a fair process. In practice, designers focus on:
       <b>intrinsic reinforcement</b>, <b>extrinsic rewards/recognition</b>, and <b>equity</b>.
     </p>
 
-    <!-- ✅ Replaced duplicate image block with a richer framing card (no image) -->
     <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
       <div class="flex items-start justify-between gap-4">
         <div>
@@ -313,7 +328,6 @@
       </div>
     </div>
 
-    <!-- ✅ Replaced photo-backed template with a no-image, copy-ready template -->
     <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
       <div class="text-2xl font-black">Satisfying ending template (copy into a module)</div>
       <p class="mt-2 text-slate-700 text-sm">
@@ -353,7 +367,6 @@
       </div>
     </div>
 
-    <!-- Do/Don't -->
     <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
       <div class="text-2xl font-black">Do / Don’t (Satisfaction)</div>
       <div class="mt-5 grid md:grid-cols-2 gap-4">
