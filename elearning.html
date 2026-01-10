@@ -18,8 +18,6 @@
     .ratio iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
     .good{ border-color: rgba(34,197,94,.45) !important; background: rgba(34,197,94,.08) !important; }
     .bad{ border-color: rgba(239,68,68,.45) !important; background: rgba(239,68,68,.08) !important; }
-
-    /* ✅ NEW: image utilities (no layout break) */
     .img-card{ border: 1px solid rgba(226,232,240,.9); background: rgba(248,250,252,.65); }
   </style>
 </head>
@@ -36,11 +34,14 @@
 
     <nav class="hidden md:flex items-center gap-2 text-sm">
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
-      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <!-- ✅ wording aligns with index.html -->
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#introduction">Introduction</a>
+
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">A</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">R</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">C</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">S</a>
+
       <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="elearning.html">E-learning</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
@@ -52,11 +53,13 @@
   <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
     <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#home">Home</a>
-      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#theory">Theory</a>
+      <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="index.html#introduction">Introduction</a>
+
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="attention.html">Attention (A)</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="relevance.html">Relevance (R)</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="confidence.html">Confidence (C)</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="satisfaction.html">Satisfaction (S)</a>
+
       <a class="px-3 py-2 rounded-xl bg-[var(--brand)] text-white" href="elearning.html">E-learning</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="assessment.html">Assessment</a>
       <a class="px-3 py-2 rounded-xl hover:bg-slate-100" href="resources.html">Resources</a>
@@ -69,96 +72,60 @@
   <!-- Hero -->
   <section class="pt-10 pb-8">
     <div class="marker w-20 mb-5"></div>
-    <div class="grid lg:grid-cols-12 gap-8 items-start">
-      <div class="lg:col-span-7">
-        <h1 class="text-4xl md:text-5xl font-black leading-tight">
-          Applying ARCS in E-learning
-        </h1>
-        <p class="mt-5 text-lg text-slate-700">
-          E-learning increases flexibility, but it also increases dropout risk: learners study alone, face more distractions,
-          and receive less immediate support. The ARCS Model helps designers intentionally build motivation so learners start,
-          persist, and finish.
-        </p>
 
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#challenges" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
-            E-learning Challenges
-          </a>
-          <a href="#video1" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
-            ARCS Video
-          </a>
-          <a href="#blueprint" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
-            ARCS Blueprint
-          </a>
-          <a href="#video2" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
-            Gamified Demo
-          </a>
-        </div>
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <h1 class="text-4xl md:text-5xl font-black leading-tight">
+        Application of ARCS Model in e-learning
+      </h1>
+      <span class="tag text-xs font-bold px-3 py-1 rounded-full text-slate-700">Required section</span>
+    </div>
 
-        <!-- ✅ Hero image strip -->
-        <div class="mt-8 grid sm:grid-cols-3 gap-3">
-          <div class="rounded-3xl overflow-hidden shadow-soft img-card p-3">
-            <img src="arcs-cycle-diagram.png" alt="ARCS cycle diagram" class="w-full h-auto rounded-2xl" loading="lazy">
-            <div class="mt-2 text-xs text-slate-600">ARCS as a system</div>
-          </div>
-          <div class="rounded-3xl overflow-hidden shadow-soft img-card p-3">
-            <img src="arcs-full-framework-infographic.png" alt="ARCS full framework infographic" class="w-full h-auto rounded-2xl" loading="lazy">
-            <div class="mt-2 text-xs text-slate-600">Sub-categories overview</div>
-          </div>
-          <div class="rounded-3xl overflow-hidden shadow-soft img-card p-3">
-            <!-- ✅ FIXED filename -->
-            <img src="certificate-online-course.jpg" alt="Certificate / completion recognition" class="w-full h-auto rounded-2xl" loading="lazy">
-            <div class="mt-2 text-xs text-slate-600">Satisfaction & recognition</div>
-          </div>
-        </div>
+    <p class="mt-5 text-lg text-slate-700">
+      E-learning increases flexibility, but it also increases dropout risk: learners study alone, face more distractions,
+      and receive less immediate support. The ARCS Model helps designers intentionally build motivation so learners start,
+      persist, and finish.
+    </p>
+
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="#elearning" class="px-5 py-3 rounded-2xl bg-[var(--brand)] text-white font-bold shadow-soft hover:opacity-95">
+        E-learning
+      </a>
+      <a href="#application" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+        Application (Blueprint + Demo)
+      </a>
+      <a href="#video1" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+        ARCS Video
+      </a>
+      <a href="#video2" class="px-5 py-3 rounded-2xl border border-slate-200 font-bold hover:bg-slate-100">
+        Gamified Demo
+      </a>
+    </div>
+
+    <!-- Hero image strip -->
+    <div class="mt-8 grid sm:grid-cols-3 gap-3">
+      <div class="rounded-3xl overflow-hidden shadow-soft img-card p-3">
+        <img src="arcs-cycle-diagram.png" alt="ARCS cycle diagram" class="w-full h-auto rounded-2xl" loading="lazy">
+        <div class="mt-2 text-xs text-slate-600">ARCS as a system</div>
       </div>
-
-      <div class="lg:col-span-5">
-        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-          <div class="text-sm font-bold text-slate-700">What this page provides</div>
-          <div class="text-2xl font-black mt-2">A complete application view</div>
-          <p class="mt-3 text-slate-700">
-            Instead of discussing A/R/C/S separately, we connect them as a system and show how ARCS can be implemented
-            in real e-learning lessons.
-          </p>
-
-          <div class="divider my-6"></div>
-
-          <div class="grid gap-3 text-sm">
-            <div class="pill rounded-2xl p-4">
-              <div class="font-bold">Challenges → Strategies</div>
-              <div class="text-slate-700 mt-1">Map common online problems to ARCS solutions.</div>
-            </div>
-            <div class="pill rounded-2xl p-4">
-              <div class="font-bold">Blueprint</div>
-              <div class="text-slate-700 mt-1">Step-by-step recipe to design an ARCS lesson.</div>
-            </div>
-            <div class="pill rounded-2xl p-4">
-              <div class="font-bold">Mini activity</div>
-              <div class="text-slate-700 mt-1">Practice choosing the best ARCS interventions.</div>
-            </div>
-          </div>
-
-          <div class="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-4">
-            <div class="flex items-center gap-4">
-              <img src="john-m-keller-portrait.jpg" alt="John M. Keller portrait" class="h-16 w-16 rounded-2xl object-cover border border-slate-200" loading="lazy">
-              <div>
-                <div class="text-sm font-bold text-slate-700">Origin</div>
-                <div class="text-sm text-slate-600">ARCS was developed by John M. Keller to plan motivation systematically.</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      <div class="rounded-3xl overflow-hidden shadow-soft img-card p-3">
+        <img src="arcs-full-framework-infographic.png" alt="ARCS full framework infographic" class="w-full h-auto rounded-2xl" loading="lazy">
+        <div class="mt-2 text-xs text-slate-600">Sub-categories overview</div>
       </div>
-
+      <div class="rounded-3xl overflow-hidden shadow-soft img-card p-3">
+        <img src="certificate-online-course.jpg" alt="Certificate / completion recognition" class="w-full h-auto rounded-2xl" loading="lazy">
+        <div class="mt-2 text-xs text-slate-600">Satisfaction & recognition</div>
+      </div>
     </div>
   </section>
 
-  <!-- Challenges -->
-  <section id="challenges" class="py-10">
+  <!-- ✅ REQUIRED: E-learning section -->
+  <section id="elearning" class="py-10">
     <div class="marker w-16 mb-5"></div>
-    <h2 class="text-3xl font-black">Why motivation is fragile in e-learning</h2>
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-3xl font-black">E-learning</h2>
+      <span class="tag text-xs font-bold px-3 py-1 rounded-full text-slate-700">Required section</span>
+    </div>
+
     <p class="mt-3 text-slate-700">
       Compared with face-to-face learning, online learning often reduces supervision and real-time interaction.
       That makes motivation a design requirement, not a “nice-to-have.”
@@ -286,15 +253,20 @@
     </div>
   </section>
 
-  <!-- Blueprint -->
-  <section id="blueprint" class="py-10">
+  <!-- ✅ REQUIRED: Application section -->
+  <section id="application" class="py-10">
     <div class="marker w-16 mb-5"></div>
-    <h2 class="text-3xl font-black">ARCS Blueprint: a step-by-step design recipe</h2>
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-3xl font-black">Application of ARCS Model in e-learning</h2>
+      <span class="tag text-xs font-bold px-3 py-1 rounded-full text-slate-700">Required section</span>
+    </div>
+
     <p class="mt-3 text-slate-700">
       Use this blueprint to convert the ARCS model into concrete decisions. This is the “application” core: it shows
       exactly how a designer can implement ARCS in an online lesson.
     </p>
 
+    <!-- Blueprint -->
     <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
       <div class="p-6">
         <div class="text-sm font-bold text-slate-700">Blueprint visual</div>
@@ -306,7 +278,6 @@
       </div>
     </div>
 
-    <!-- ✅ UPDATED: each step uses the correct existing image -->
     <div class="mt-6 grid lg:grid-cols-2 gap-4">
 
       <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
@@ -372,8 +343,6 @@
         <div class="mt-4 pill rounded-2xl p-4 text-sm text-slate-700">
           <b>Example:</b> “Design one ARCS improvement for a lesson you personally took online.”
         </div>
-
-        <!-- ✅ FIXED filename + consistent visual -->
         <div class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
           <img src="certificate-online-course.jpg" alt="Recognition example for Satisfaction" class="w-full h-auto rounded-2xl" loading="lazy">
         </div>
@@ -453,7 +422,6 @@
           <div class="text-sm font-bold text-slate-700">Recognition</div>
           <div class="text-xs text-slate-600 mt-1">Satisfaction increases when progress is visible.</div>
           <div class="mt-3 rounded-2xl overflow-hidden border border-slate-200 bg-white p-2">
-            <!-- ✅ FIXED filename -->
             <img src="certificate-online-course.jpg" alt="Recognition visual linked to Satisfaction" class="w-full h-auto rounded-xl" loading="lazy">
           </div>
         </div>
@@ -510,12 +478,10 @@
 </footer>
 
 <script>
-  // Mobile menu
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-  // Mini practice: ARCS fix
   const fixFeedback = document.getElementById('fixFeedback');
   const fixBtns = document.querySelectorAll('.fixBtn');
 
