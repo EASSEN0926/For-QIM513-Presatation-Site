@@ -22,6 +22,14 @@
     .bad{ border-color: rgba(239,68,68,.45) !important; background: rgba(239,68,68,.08) !important; }
     .bar{ height: 12px; border-radius: 999px; background: rgba(148,163,184,.35); overflow: hidden; }
     .bar > span{ display:block; height:100%; background: linear-gradient(90deg, rgba(11,59,136,1), rgba(242,210,0,1)); width: 0; transition: width .4s ease; }
+    .kbd{
+      border:1px solid rgba(148,163,184,.55);
+      background: rgba(248,250,252,.9);
+      padding: .15rem .45rem;
+      border-radius: .6rem;
+      font-weight: 700;
+      font-size: .8rem;
+    }
   </style>
 </head>
 
@@ -94,7 +102,7 @@
           </a>
         </div>
 
-        <!-- ✅ NEW: Hero visual (uses your existing image: rubric/feedback) -->
+        <!-- ✅ Image appears ONLY ONCE in the whole page -->
         <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
           <div class="p-5">
             <div class="text-sm font-bold text-slate-700">Visual cue</div>
@@ -134,13 +142,27 @@
             </div>
           </div>
 
-          <!-- ✅ NEW: Small “e-learning risk” callout -->
           <div class="mt-6 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
             <div class="text-xs font-bold text-slate-600">Common risk online</div>
             <div class="text-sm text-slate-700 mt-1">
               If learners don’t know what to do next, they pause—then they leave. Confidence design prevents that.
             </div>
           </div>
+
+          <!-- ✅ NEW: “Confidence UX” mini checklist (no image) -->
+          <div class="mt-6 rounded-3xl border border-slate-200 p-5">
+            <div class="font-black">Confidence UX checklist</div>
+            <p class="mt-2 text-sm text-slate-700">
+              If you can answer “yes” to these, learners are more likely to persist.
+            </p>
+            <div class="mt-3 grid gap-2 text-sm text-slate-700">
+              <div class="flex gap-2"><span class="font-black text-[var(--brand)]">✓</span><span>Do learners know what to do <b>next</b> on every screen?</span></div>
+              <div class="flex gap-2"><span class="font-black text-[var(--brand)]">✓</span><span>Is there a <b>model/example</b> before independent work?</span></div>
+              <div class="flex gap-2"><span class="font-black text-[var(--brand)]">✓</span><span>Does feedback explain <b>why</b> and how to improve?</span></div>
+              <div class="flex gap-2"><span class="font-black text-[var(--brand)]">✓</span><span>Can learners <b>retry</b> or access hints without penalty?</span></div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -155,23 +177,43 @@
       <b>learning requirements</b>, <b>success opportunities</b>, and <b>personal control</b>.
     </p>
 
-    <!-- ✅ NEW: Visual reinforcement card -->
-    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
-      <div class="p-6">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <div class="text-sm font-bold text-slate-700">Quick framing</div>
-            <div class="text-2xl font-black mt-1">Make success predictable</div>
-            <p class="mt-2 text-slate-700 text-sm">
-              Confidence is built when learners can answer: “What is expected?” “How do I practice?” “How do I improve?”
-              Rubrics, examples, and feedback make progress feel achievable.
-            </p>
-          </div>
-          <span class="pill px-4 py-2 rounded-full text-sm font-bold">C</span>
+    <!-- ✅ Replaced the duplicate-image block with a richer “Make success predictable” framework (no image) -->
+    <div class="mt-6 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="text-sm font-bold text-slate-700">Quick framing</div>
+          <div class="text-2xl font-black mt-1">Make success predictable</div>
+          <p class="mt-2 text-slate-700 text-sm">
+            Confidence grows when learners can answer three questions during e-learning:
+            <span class="kbd">What’s expected?</span>
+            <span class="kbd">Can I practice safely?</span>
+            <span class="kbd">How do I improve?</span>
+          </p>
         </div>
+        <span class="pill px-4 py-2 rounded-full text-sm font-bold">C</span>
+      </div>
 
-        <div class="mt-4 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
-          <img src="rubric-feedback.jpg" alt="Confidence visual: rubric and feedback" class="w-full h-auto rounded-2xl" loading="lazy">
+      <div class="mt-5 grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+          <div class="text-xs font-bold text-slate-600">Design move</div>
+          <div class="font-black text-lg mt-1">Show requirements</div>
+          <p class="text-sm text-slate-700 mt-2">
+            Post a rubric/checklist early, plus one high-quality example.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+          <div class="text-xs font-bold text-slate-600">Design move</div>
+          <div class="font-black text-lg mt-1">Create early wins</div>
+          <p class="text-sm text-slate-700 mt-2">
+            Start with simpler tasks, then increase difficulty gradually.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+          <div class="text-xs font-bold text-slate-600">Design move</div>
+          <div class="font-black text-lg mt-1">Make help normal</div>
+          <p class="text-sm text-slate-700 mt-2">
+            Add hints, retries, and feedback explanations—reduce fear of failure.
+          </p>
         </div>
       </div>
     </div>
@@ -337,6 +379,17 @@
             A confidence-friendly design reduces dropout risk in e-learning by making learners feel capable and supported.
           </p>
         </div>
+
+        <!-- ✅ NEW: “Quick fixes” block to add richness (no image) -->
+        <div class="mt-6 rounded-2xl border border-slate-200 p-5">
+          <div class="font-bold">Quick fixes (fast wins)</div>
+          <ul class="mt-2 text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Add a <b>model answer</b> before the first graded activity.</li>
+            <li>Give <b>one hint button</b> (optional support) for difficult steps.</li>
+            <li>Turn “wrong” into “not yet” with <b>retry + explanation</b>.</li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </section>
@@ -390,26 +443,42 @@
       </div>
     </div>
 
-    <!-- ✅ NEW: Photo-backed “micro-template” card -->
-    <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
-      <div class="p-6">
-        <div class="text-2xl font-black">Confidence micro-template (copy into a lesson)</div>
-        <p class="mt-2 text-slate-700 text-sm">
-          You can add this block before a quiz/assignment in e-learning to reduce anxiety and increase persistence.
-        </p>
+    <!-- ✅ Replaced the duplicate-image “micro-template” with a no-image, copy-ready template -->
+    <div class="mt-8 rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
+      <div class="text-2xl font-black">Confidence micro-template (copy into a lesson)</div>
+      <p class="mt-2 text-slate-700 text-sm">
+        Use this before a quiz/assignment to reduce anxiety and increase persistence.
+      </p>
 
-        <div class="mt-4 grid lg:grid-cols-12 gap-5 items-start">
-          <div class="lg:col-span-6 rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 p-4">
-            <img src="rubric-feedback.jpg" alt="Rubric feedback supporting confidence" class="w-full h-auto rounded-2xl" loading="lazy">
+      <div class="mt-5 grid lg:grid-cols-12 gap-5 items-start">
+        <div class="lg:col-span-7 rounded-3xl border border-slate-200 p-5">
+          <div class="text-sm font-bold text-slate-700">Copy-ready block</div>
+          <div class="mt-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
+            <b>What you need to do:</b> Choose the correct ARCS component and justify with one matching strategy.<br/>
+            <b>What success looks like:</b> Your answer includes a definition + a realistic e-learning example.<br/>
+            <b>Support:</b> You can retry once, and you’ll see an explanation after submitting.
           </div>
-          <div class="lg:col-span-6 rounded-3xl border border-slate-200 p-5">
-            <div class="text-sm font-bold text-slate-700">Copy-ready block</div>
-            <div class="mt-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800">
-              <b>What you need to do:</b> Choose the correct ARCS component and justify with one matching strategy.<br/>
-              <b>What success looks like:</b> Your answer includes a clear definition + a realistic e-learning example.<br/>
-              <b>Support:</b> You can retry once, and you’ll see an explanation after submitting.
-            </div>
+
+          <div class="mt-4 rounded-2xl border border-slate-200 p-4 text-sm text-slate-700">
+            <b>Optional add-on:</b> Provide one <i>model answer</i> and one <i>common mistake</i> example.
+            This makes “success” more visible.
           </div>
+        </div>
+
+        <div class="lg:col-span-5 rounded-3xl border border-slate-200 p-5 bg-slate-50">
+          <div class="text-sm font-bold text-slate-700">Why it works (ARCS mapping)</div>
+          <ul class="mt-3 text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li><b>Learning Requirements:</b> clarifies expectations</li>
+            <li><b>Success Opportunities:</b> supports early wins + retry</li>
+            <li><b>Personal Control:</b> gives learners control over attempts</li>
+          </ul>
+
+          <div class="divider my-5"></div>
+
+          <div class="text-sm font-bold text-slate-700">Use it on your site</div>
+          <p class="mt-2 text-sm text-slate-700">
+            You can paste this block before your <b>Assessment</b> page link to reduce test anxiety.
+          </p>
         </div>
       </div>
     </div>
